@@ -1,4 +1,5 @@
 import Hero from './components/hero';
+import Problem from './components/problem/Problem';
 import Trust from './components/trust/Trust';
 import ExplainerSection from './components/explainer/ExplainerSection';
 import Benefits from './components/benefits/Benefits';
@@ -10,6 +11,7 @@ export default function Page() {
   return (
     <main>
       <Hero />
+      <Problem />
       <Trust />
       <ExplainerSection />
       <Benefits />

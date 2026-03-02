@@ -1,0 +1,165 @@
+.problemSection {
+    background-color: var(--grey-8);
+    /* same as trustSection */
+    padding: 5rem 1rem;
+}
+
+@media (prefers-color-scheme: dark) {
+    .problemSection {
+        background-color: var(--grey-3);
+        /* same as trustSection */
+    }
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.headline {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--text-color);
+    /* same as trust title */
+    margin-bottom: 0.75rem;
+}
+
+.subtext {
+    font-size: 1rem;
+    color: var(--grey-5);
+    /* same as trust subtitle */
+    margin-bottom: 2.5rem;
+}
+
+@media (prefers-color-scheme: dark) {
+    .subtext {
+        color: var(--grey-6);
+        /* same as trust subtitle dark */
+    }
+}
+
+.grid {
+    display: grid;
+    gap: 2rem;
+}
+
+@keyframes slideInLeft {
+    from {
+        transform: translateX(-20px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(20px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.problemItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    opacity: 0;
+}
+
+.problemItem.isVisible.slideInLeft {
+    animation: slideInLeft 0.5s ease-out forwards;
+}
+
+.problemItem.isVisible.slideInRight {
+    animation: slideInRight 0.5s ease-out forwards;
+}
+
+.icon {
+    width: 24px;
+    height: 24px;
+    margin-bottom: 1rem;
+    color: var(--grey-5);
+    /* same as trust social icons */
+    stroke-width: 2px;
+}
+
+@media (prefers-color-scheme: dark) {
+    .icon {
+        color: var(--grey-6);
+        /* same as trust social icons dark */
+    }
+}
+
+.problemTitle {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: var(--text-color);
+    /* same as trust stats */
+    margin-bottom: 0.5rem;
+}
+
+.problemBody {
+    font-size: 1rem;
+    color: var(--grey-5);
+    /* same as trust stat p */
+    max-width: 300px;
+}
+
+@media (prefers-color-scheme: dark) {
+    .problemBody {
+        color: var(--grey-6);
+        /* same as trust stat p dark */
+    }
+}
+
+/* Tablet and Desktop layouts */
+@media (min-width: 768px) {
+    .problemSection {
+        padding: 6rem 2rem;
+    }
+
+    .headline {
+        font-size: 2.5rem;
+    }
+
+    .subtext {
+        font-size: 1.125rem;
+        margin-bottom: 3rem;
+    }
+
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 3rem;
+    }
+
+    .icon {
+        width: 28px;
+        height: 28px;
+        margin-bottom: 1.25rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .headline {
+        font-size: 3rem;
+    }
+
+    .grid {
+        gap: 4rem;
+    }
+
+    .icon {
+        width: 32px;
+        height: 32px;
+        margin-bottom: 1.5rem;
+    }
+}

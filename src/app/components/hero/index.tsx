@@ -14,7 +14,7 @@ const Hero = () => {
         containerClassName={styles.animationContainer}
       />
       <div className={styles.ctaContainer}>
-        <button className={`${styles.ctaButton} ${styles.primaryCta}`}>Free Chat</button>
+
         <a href="#faq" className={styles.faqLink}>
           <button className={`${styles.ctaButton} ${styles.secondaryCta}`}>FAQ</button>
         </a>

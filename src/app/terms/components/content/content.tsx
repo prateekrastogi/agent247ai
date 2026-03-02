@@ -11,20 +11,20 @@ const Content = () => {
           <div className={styles.text}>
             <h2 className={styles.titleColor}>1. Introduction</h2>
             <p>
-             Welcome to ShareFollowLike.com. These Terms of Service (“Terms”) govern your access to and use of our AI-powered social media marketing services, tools, and website (the “Services”). By using our Services, you agree to these Terms. If you do not agree, please do not use our Services.
+              Welcome to Agent24/7AI.com. These Terms of Service (“Terms”) govern your access to and use of our AI-powered social media marketing services, tools, and website (the “Services”). By using our Services, you agree to these Terms. If you do not agree, please do not use our Services.
             </p>
 
             <h2 className={styles.titleColor}>2. Eligibility</h2>
             <p>
               You must be at legally able to enter into contracts to use our Services. By using our Services, you confirm that you meet these requirements.
             </p>
-          
+
 
             <h2 className={styles.titleColor}>3. Use of Services</h2>
             <p>
               We provide AI-driven tools and automation for social media marketing. You agree to:
             </p>
-              <ul>
+            <ul>
               <li>Use our Services only for appearance purposes.</li>
               <li>Not misuse, reverse engineer, or exploit our Services in ways not intended.</li>
               <li>Comply with all applicable laws and platform policies when using our Services.</li>
@@ -45,15 +45,15 @@ const Content = () => {
               <li>Authorize us (or our payment providers) to charge applicable fees.</li>
               <li>Understand that subscription plans renew automatically unless canceled.</li>
               <li>Not raise chargebacks or payment disputes with your issuing bank.</li>
-            </ul> 
+            </ul>
             <h2 className={styles.titleColor}>6. Intellectual Property</h2>
             <p>
-              All content, features, and functionality in our Services (including AI models, software, design, and branding) are owned by ShareFollowLike.com. You may not copy, modify, or distribute our materials without written permission.
+              All content, features, and functionality in our Services (including AI models, software, design, and branding) are owned by Agent24/7AI.com. You may not copy, modify, or distribute our materials without written permission.
             </p>
 
             <h2 className={styles.titleColor}>7. Limitation of Liability</h2>
             <p>
-              Our Services are provided “as is.” While we strive for reliability and accuracy, we do not guarantee specific outcomes. ShareFollowLike.com is not liable for indirect, incidental, or consequential damages resulting from your use of the Services.
+              Our Services are provided “as is.” While we strive for reliability and accuracy, we do not guarantee specific outcomes. Agent24/7AI.com is not liable for indirect, incidental, or consequential damages resulting from your use of the Services.
             </p>
 
             <h2 className={styles.titleColor}>8. Termination</h2>
@@ -64,16 +64,16 @@ const Content = () => {
             <p>
               These Terms are governed by the laws of India. Any disputes will be handled in the courts of that jurisdiction.
             </p>
-             <h2 className={styles.titleColor}>10. Contact</h2>
+            <h2 className={styles.titleColor}>10. Contact</h2>
             <p>
-              If you have questions about these Terms, let&apos;s connect at: 
-              </p> 
-              <p>     
-              <a href="mailto:support@sharefollowlike.com" className={styles.linkStyle}><RiMailLine style={{verticalAlign: 'middle' }} /> support@sharefollowlike.com</a>
-          </p>
-          <p>
-            <a href="https://sharefollowlike.com/about#contact" className={styles.linkStyle}><BsGlobe style={{ verticalAlign: 'middle' }} /> sharefollowlike.com</a>
-          </p>
+              If you have questions about these Terms, let&apos;s connect at:
+            </p>
+            <p>
+              <a href="mailto:support@sharefollowlike.com" className={styles.linkStyle}><RiMailLine style={{ verticalAlign: 'middle' }} /> support@sharefollowlike.com</a>
+            </p>
+            <p>
+              <a href="https://sharefollowlike.com/about#contact" className={styles.linkStyle}><BsGlobe style={{ verticalAlign: 'middle' }} /> sharefollowlike.com</a>
+            </p>
           </div>
         </div>
       </div>

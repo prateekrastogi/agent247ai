@@ -9,7 +9,7 @@ const Story: React.FC = () => {
         <div className={styles.column}>
           <h2 className={styles.title}>Our Origin</h2>
           <p className={styles.text}>
-            &quot;ShareFollowLike&quot; was born from a simple observation: in a world saturated with content; we saw creators struggling to be seen, and audiences yearning for authentic voices— our vision is to bridge that gap, creating a platform where quality content finds its audience, and meaningful interactions flourish
+            &quot;Agent24/7AI&quot; was born from a simple observation: in a world saturated with content; we saw creators struggling to be seen, and audiences yearning for authentic voices— our vision is to bridge that gap, creating a platform where quality content finds its audience, and meaningful interactions flourish
           </p>
         </div>
         <div className={styles.column}>

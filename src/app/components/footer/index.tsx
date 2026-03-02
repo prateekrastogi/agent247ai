@@ -18,13 +18,13 @@ const Footer = () => {
               <source srcSet="/logo_white.png" media="(prefers-color-scheme: dark)" />
               <img
                 src="/logo_black.png"
-                alt="ShareFollowLike"
+                alt="Agent24/7AI"
                 className={styles.logo}
               />
             </picture>
-            <span className={styles.brandName}>ShareFollowLike</span>
+            <span className={styles.brandName}>Agent24/7AI</span>
           </div>
-          
+
         </div>
 
         <div className={styles.centerColumn}>
@@ -46,7 +46,7 @@ const Footer = () => {
       </div>
 
       <div className={styles.legalBar}>
-        <p>© {new Date().getFullYear()} ShareFollowLike. Crafted with precision. All rights reserved.</p>
+        <p>© {new Date().getFullYear()} Agent24/7AI. Crafted with precision. All rights reserved.</p>
       </div>
 
       <div className={styles.legalLinksBar}>

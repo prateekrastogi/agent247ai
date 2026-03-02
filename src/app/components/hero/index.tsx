@@ -7,7 +7,7 @@ const Hero = () => {
     <section className={styles.heroContainer}>
       <AnimatedHeadline /> {/* Use the new component here */}
       <p className={styles.subtext}>
-        Whether you’re just starting out or already a household name, ShareFollowLike gives you the trusted growth tools of today’s top creators — fast, reliable, and discreet
+        Whether you’re just starting out or already a household name, Agent24/7AI gives you the trusted growth tools of today’s top creators — fast, reliable, and discreet
       </p>
       <VideoAnimation
         videoClassName={styles.heroVideo}

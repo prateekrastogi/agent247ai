@@ -25,7 +25,7 @@ const ScrollHandler: React.FC<ScrollHandlerProps> = ({ onBookDemoClick }) => {
 
   return (
     <>
-      <div className={`${styles.brandName} ${scrolled ? styles.hidden : ''}`}>ShareFollowLike</div>
+      <div className={`${styles.brandName} ${scrolled ? styles.hidden : ''}`}>Agent24/7AI</div>
       <button className={styles.bookDemoButton} onClick={onBookDemoClick}>Book a Demo</button>
     </>
   );

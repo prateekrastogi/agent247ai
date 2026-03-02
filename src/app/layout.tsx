@@ -22,7 +22,10 @@ export const metadata: Metadata = {
   title: "Social Media Platform Assistant",
   description: "Smarter Marketing. AI Engineered.",
   icons: {
-    icon: "/favicon.png",
+    icon: [
+      { url: "/logo_black.png", media: "(prefers-color-scheme: light)" },
+      { url: "/logo_white.png", media: "(prefers-color-scheme: dark)" },
+    ],
   },
 };
 
@@ -33,9 +36,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${plusJakartaSans.variable} ${inter.variable}`}><body>
-        <Header />
-        <main>{children}</main>
-        <Footer />
-      </body></html>
+      <Header />
+      <main>{children}</main>
+      <Footer />
+    </body></html>
   );
 }

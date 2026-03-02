@@ -4,9 +4,9 @@ import { useState, useEffect } from 'react';
 import styles from './hero.module.css';
 
 const headlines = [
-  "Influencers Choose It",
-  "Celebrities Use It",
-  "Fans Notice It"
+  "Never Miss Calls",
+  "Book More Jobs",
+  "Grow Without Hiring"
 ];
 
 const AnimatedHeadline = () => {

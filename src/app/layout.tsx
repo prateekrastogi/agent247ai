@@ -19,7 +19,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Social Media Platform Assistant",
+  title: "HVAC AI Agent – 24/7 Call & Text",
   description: "Smarter Marketing. AI Engineered.",
   icons: {
     icon: [

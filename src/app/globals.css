@@ -1,0 +1,112 @@
+:root {
+  /* 10-Step Greyscale Palette */
+  /* 
+   * Usage Suggestions:
+   * Dark Mode: Use --grey-1 to --grey-6 primarily. --grey-0 for deep shadows/overlays. --grey-7 for rare light contrasts.
+   * Light Mode: Use --grey-4 to --grey-10 primarily. --grey-3 for high-contrast icons. --grey-0 for text emphasis.
+   * Ensure text contrast ratios are above 4.5:1 for readability.
+   */
+  --grey-0: #000000;
+  --grey-1: #121212;
+  --grey-2: #1C1C1C;
+  --grey-3: #2B2B2B;
+  --grey-4: #444444;
+  --grey-5: #666666;
+  --grey-6: #A8A8A8;
+  --grey-7: #D0D0D0;
+  --grey-8: #E5E5E5;
+  --grey-9: #F5F5F5;
+  --grey-10: #FFFFFF;
+
+  /* RGB values for opacity */
+  --grey-0-rgb: 0, 0, 0;
+  --grey-1-rgb: 18, 18, 18;
+  --grey-2-rgb: 28, 28, 28;
+  --grey-3-rgb: 43, 43, 43;
+  --grey-4-rgb: 68, 68, 68;
+  --grey-5-rgb: 102, 102, 102;
+  --grey-6-rgb: 168, 168, 168;
+  --grey-7-rgb: 208, 208, 208;
+  --grey-8-rgb: 229, 229, 229;
+  --grey-9-rgb: 245, 245, 245;
+  --grey-10-rgb: 255, 255, 255;
+
+  /* Theme variables */
+  --text-color: var(--grey-0);
+  --background-color: var(--grey-10);
+  --header-height: clamp(38px, 4.5vw, 75px);
+
+  /* Font Setup */
+  /*
+   * Primary Brand Font: Plus Jakarta Sans
+   * Why: Friendly curves, modern proportions, great balance between casual and premium.
+   * Usage: Logo, brand name in header, landing page headlines.
+   * Weights: 500 (Medium), 600 (Semi-bold).
+   */
+  --font-primary: var(--font-plus-jakarta-sans);
+
+  /*
+   * Secondary UI Font: Inter
+   * Why: Extremely readable in UI/chat bubbles, widely supported.
+   * Usage: Chat text, buttons, menus, smaller UI labels.
+   * Weights: 400 (Regular), 500 (Medium).
+   */
+  --font-secondary: var(--font-inter);
+}
+
+html, body {
+  box-sizing: border-box;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text-color: var(--grey-10);
+    --background-color: var(--grey-1);
+  }
+  html, body {
+    background-color: var(--grey-1);
+  }
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+body {
+  color: var(--text-color);
+  background-color: var(--background-color);
+  font-family: var(--font-secondary); /* Default UI font */
+}
+
+/* Apply primary font to specific elements */
+h1, h2, h3, h4, h5, h6,
+.header .brandName, /* Brand name in header */
+.logoContainer /* Assuming logo text or similar uses this */ {
+  font-family: var(--font-primary);
+}
+
+/* Fine-tuned breakpoints for header height */
+@media (max-width: 480px) {
+  :root {
+    --header-height: 38px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  :root {
+    --header-height: 38px;
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --header-height: 47px;
+  }
+}
+
+@media (min-width: 1440px) {
+  :root {
+    --header-height: 75px;
+  }
+}
+

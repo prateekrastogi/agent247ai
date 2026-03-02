@@ -1,0 +1,138 @@
+.teamSection {
+  background-color: var(--grey-8);
+  padding: 4rem 1rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  .teamSection {
+    background-color: var(--grey-3);
+  }
+}
+
+.teamContent {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 2rem; /* Padding for desktop */
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.subcopy {
+  font-size: 1.125rem;
+  line-height: 1.8;
+  color: var(--grey-5);
+  text-align: center;
+  margin-bottom: 3rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (prefers-color-scheme: dark) {
+  .subcopy {
+    color: var(--grey-6);
+  }
+}
+
+.officeImageContainer {
+  width: 100%;
+  height: 400px; /* Placeholder height */
+  position: relative;
+  margin-bottom: 4rem;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.officeImage {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.teamGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem; /* Gutters for desktop */
+  justify-items: center;
+}
+
+.teamMemberImage {
+  width: 360px; /* Desktop size */
+  height: 360px; /* Desktop size */
+  object-fit: cover;
+  border-radius: 8px; /* Rounded corners */
+  filter: grayscale(100%); /* Black and white */
+  transition: transform 0.3s ease;
+  aspect-ratio: 1 / 1; /* Ensure square space is reserved */
+}
+
+.teamMemberImage:hover {
+  transform: scale(1.05);
+}
+
+/* Tablet Styles */
+@media (max-width: 1024px) {
+  .teamContent {
+    padding: 3rem 1.5rem;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .subcopy {
+    font-size: 1rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .officeImageContainer {
+    height: 300px;
+    margin-bottom: 3rem;
+  }
+
+  .teamGrid {
+    grid-template-columns: repeat(3, 1fr); /* Still 3 columns on tablet */
+    gap: 1.5rem;
+  }
+
+  .teamMemberImage {
+    max-width: 100%; /* Tablet size */
+    height: auto; /* Tablet size */
+  }
+}
+
+/* Mobile Styles */
+@media (max-width: 640px) {
+  .teamContent {
+    padding: 2rem 1rem;
+  }
+
+  .title {
+    font-size: 1.8rem;
+  }
+
+  .subcopy {
+    font-size: 0.9rem;
+    margin-bottom: 2rem;
+  }
+
+  .officeImageContainer {
+    height: 250px; /* Mobile height */
+    margin-bottom: 2rem;
+  }
+
+  .teamGrid {
+    grid-template-columns: 1fr; /* Single column on mobile */
+    gap: 1.5rem; /* Spacing between portraits */
+  }
+
+  .teamMemberImage {
+    max-width: 100%; /* Mobile size */
+    height: auto; /* Mobile size */
+  }
+}

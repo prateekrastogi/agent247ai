@@ -1,0 +1,377 @@
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0); /* Start transparent for fade-in */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  transition: background 180ms ease-in-out;
+}
+
+.overlayEntering {
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.overlayExiting {
+  background: rgba(0, 0, 0, 0);
+}
+
+/* Keyframes for desktop/tablet modal entry/exit */
+@keyframes modalEntryDesktop {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes modalExitDesktop {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+}
+
+/* Keyframes for mobile modal entry/exit */
+@keyframes modalEntryMobile {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes modalExitMobile {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(100%);
+  }
+}
+
+.modalContent {
+  position: relative;
+  background-color: var(--grey-10); /* Light theme default */
+  border-radius: 1rem; /* Mobile */
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+  width: 90%;
+  max-width: 340px;
+  height: auto;
+  padding: 1.25rem; /* Mobile */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  /* Initial state for animations */
+  opacity: 0;
+  transform: translateY(20px); /* Desktop initial state */
+}
+
+.modalEntering {
+  animation: modalEntryDesktop 220ms cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.modalExiting {
+  animation: modalExitDesktop 220ms cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* Mobile specific animations */
+@media (max-width: 767px) {
+  .modalContent {
+    position: fixed; /* For slide up from bottom */
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    max-width: none; /* Override max-width for mobile */
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    transform: translateY(100%); /* Mobile initial state */
+    opacity: 1; /* Mobile doesn't fade, it slides */
+  }
+
+  .modalEntering {
+    animation: modalEntryMobile 280ms ease-out forwards;
+  }
+
+  .modalExiting {
+    animation: modalExitMobile 280ms ease-out forwards;
+  }
+}
+
+
+.modalContent {
+  position: relative;
+  background-color: var(--grey-10); /* Light theme default */
+  border-radius: 1rem; /* Mobile */
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+  width: 90%;
+  max-width: 340px;
+  height: auto;
+  padding: 1.25rem; /* Mobile */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+@media (prefers-color-scheme: dark) {
+  .modalContent {
+    background-color: var(--grey-0);
+  }
+}
+
+/* Tablet styles */
+@media (min-width: 768px) {
+  .modalContent {
+    border-radius: 1.25rem;
+    width: 65%;
+    max-width: 480px;
+    padding: 2rem;
+  }
+}
+
+/* Desktop styles */
+@media (min-width: 1024px) {
+  .modalContent {
+    border-radius: 1.5rem;
+    width: 40%;
+    max-width: 420px;
+    padding: 2.5rem;
+  }
+}
+
+.closeIcon {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 1.25rem;
+  cursor: pointer;
+  color: var(--grey-7); /* Light theme default */
+  transition: transform 0.2s ease-out;
+}
+
+@media (prefers-color-scheme: dark) {
+  .closeIcon {
+    color: var(--grey-4);
+  }
+}
+
+@media (min-width: 768px) {
+  .closeIcon:hover {
+    transform: rotate(90deg);
+  }
+}
+
+@media (max-width: 767px) {
+  .closeIcon:active {
+    transform: scale(0.9);
+  }
+}
+
+/* Responsive positioning for close icon */
+@media (min-width: 768px) {
+  .closeIcon {
+    top: 1.5rem;
+    right: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .closeIcon {
+    top: 2rem;
+    right: 2rem;
+  }
+}
+
+.modalLogo {
+  height: 32px; /* Mobile */
+  width: auto;
+  margin-bottom: 1rem;
+}
+
+/* Responsive logo size */
+@media (min-width: 768px) {
+  .modalLogo {
+    height: 40px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .modalLogo {
+    height: 48px;
+  }
+}
+
+.modalHeading {
+  font-family: var(--font-inter); /* Assuming Inter is a CSS variable */
+  font-weight: 600; /* SemiBold */
+  font-size: 1.25rem; /* Mobile */
+  color: var(--grey-0); /* Light theme default */
+  margin-bottom: 1.5rem; /* Space before button */
+  opacity: 0;
+  animation: fadeIn 0.3s ease-out forwards;
+  animation-delay: 0.22s;
+}
+
+@media (prefers-color-scheme: dark) {
+  .modalHeading {
+    color: var(--grey-10);
+  }
+}
+
+/* Responsive heading size */
+@media (min-width: 768px) {
+  .modalHeading {
+    font-size: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .modalHeading {
+    font-size: 1.75rem;
+  }
+}
+
+.googleSignInButton {
+  width: 100%;
+  background-color: var(--grey-0); /* Google brand white */
+  border: 1px solid var(--grey-8); /* Light theme default */
+  border-radius: 2rem;
+  height: 44px; /* Mobile */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-family: var(--font-inter); /* Assuming Inter is a CSS variable */
+  font-weight: 500; /* Medium */
+  color: var(--grey-10); /* Light theme default */
+  gap: 0.5rem; /* Space between logo and text */
+  transition: background-color 0.2s ease;
+  opacity: 0;
+  animation: fadeIn 0.3s ease-out forwards;
+  animation-delay: 0.35s;
+  text-decoration: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  .googleSignInButton {
+    border: 1px solid var(--grey-3);
+    background-color: var(--grey-10);
+    color: var(--grey-0);
+  }
+}
+
+.googleSignInButton:hover, .googleSignInButton:active {
+  background-color: var(--grey-10);
+  color: var(--grey-0);
+}
+
+@media (prefers-color-scheme: dark) {
+  .googleSignInButton:hover, .googleSignInButton:active {
+    background-color: var(--grey-0);
+    color: var(--grey-10);
+  }
+}
+
+/* Responsive button height */
+@media (min-width: 768px) {
+  .googleSignInButton {
+    height: 48px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .googleSignInButton {
+    height: 52px;
+  }
+}
+
+.googleIcon {
+  height: 24px;
+  width: 24px;
+}
+
+.subtext {
+  font-size: 0.75rem; /* Mobile */
+  color: var(--grey-5); /* Light theme default */
+  text-align: center;
+  margin-top: 1rem;
+  line-height: 1.4;
+  opacity: 0;
+  animation: fadeIn 0.3s ease-out forwards;
+  animation-delay: 0.47s;
+}
+
+@media (prefers-color-scheme: dark) {
+  .subtext {
+    color: var(--grey-6);
+  }
+}
+
+/* Responsive subtext font size */
+@media (min-width: 768px) {
+  .subtext {
+    font-size: 0.85rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .subtext {
+    font-size: 0.9rem;
+  }
+}
+
+.legalLinks {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem; /* Space after subtext */
+  font-size: 0.75rem;
+  opacity: 0;
+  animation: fadeIn 0.3s ease-out forwards;
+  animation-delay: 0.60s;
+}
+
+.legalLink {
+  color: var(--grey-5); /* Light theme default */
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+@media (prefers-color-scheme: dark) {
+  .legalLink {
+    color: var(--grey-6);
+  }
+}
+
+.legalLink:hover {
+  color: var(--grey-7); /* Light theme hover */
+}
+
+@media (prefers-color-scheme: dark) {
+  .legalLink:hover {
+    color: var(--grey-4);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

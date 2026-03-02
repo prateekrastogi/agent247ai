@@ -1,0 +1,155 @@
+.faqSection {
+  width: 100%;
+  box-sizing: border-box;
+  background-color: var(--grey-6);
+  padding: 2rem 1rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  .faqSection {
+    background-color: var(--grey-5);
+  }
+}
+
+.container {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.leftColumn {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.headline {
+  font-size: clamp(1.25rem, 5vw, 2rem);
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  color: var(--grey-0);
+}
+
+@media (prefers-color-scheme: dark) {
+  .headline {
+    color: var(--grey-10);
+  }
+}
+
+.subtext {
+  font-size: clamp(1rem, 4vw, 1.125rem);
+  color: var(--grey-2);
+}
+
+@media (prefers-color-scheme: dark) {
+  .subtext {
+    color: var(--grey-8);
+  }
+}
+
+.rightColumn {
+  width: 100%;
+}
+
+.faqItem {
+  border-bottom: 1px solid var(--grey-7);
+  padding: 1rem 0;
+}
+
+@media (prefers-color-scheme: dark) {
+  .faqItem {
+    border-bottom: 1px solid var(--grey-3);
+  }
+}
+
+.faqItem:last-child {
+  border-bottom: none;
+}
+
+.question {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: none;
+  border: none;
+  text-align: left;
+  font-size: clamp(1rem, 4vw, 1.125rem);
+  font-weight: bold;
+  cursor: pointer;
+  padding: 0.5rem 0;
+  color: var(--grey-1);
+}
+
+@media (prefers-color-scheme: dark) {
+  .question {
+    color: var(--grey-9);
+  }
+}
+
+.icon {
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: var(--grey-1);
+}
+
+@media (prefers-color-scheme: dark) {
+  .icon {
+    color: var(--grey-9);
+  }
+}
+
+.answer {
+  padding: 1rem 0;
+  font-size: clamp(0.875rem, 4vw, 1rem);
+  color: var(--grey-3);
+  background-color: var(--grey-7);
+  padding: 1rem;
+  border-radius: 8px;
+  margin-top: 0.5rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  .answer {
+    background-color: var(--grey-3);
+    color: var(--grey-7);
+  }
+}
+
+@media (min-width: 1024px) {
+  .faqSection {
+    padding: 4rem 2rem;
+  }
+
+  .container {
+    display: flex;
+    align-items: center;
+  }
+
+  .leftColumn {
+    flex: 0 0 30%;
+    text-align: left;
+    padding-right: 2rem;
+    margin-bottom: 0;
+  }
+
+  .rightColumn {
+    flex: 1;
+  }
+
+  .headline {
+    font-size: 2rem;
+  }
+
+  .subtext {
+    font-size: 1.125rem;
+  }
+
+  .question {
+    font-size: 1.125rem;
+  }
+
+  .answer {
+    font-size: 1rem;
+    padding: 1.25rem;
+  }
+}

@@ -1,0 +1,167 @@
+.pricingSection {
+  padding: 4rem 1rem;
+  background-color: var(--grey-7);
+}
+
+@media (prefers-color-scheme: dark) {
+  .pricingSection {
+    background-color: var(--grey-4);
+  }
+}
+
+.pricingHeader {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.headline {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.subtext {
+  font-size: 0.9rem;
+  color: var(--grey-5);
+}
+
+.pricingGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+.pricingCard {
+  background-color: var(--grey-9);
+  padding: 2rem;
+  border-radius: 1rem;
+  border: 1px solid var(--grey-8);
+  display: flex;
+  flex-direction: column;
+}
+
+@media (prefers-color-scheme: dark) {
+  .pricingCard {
+    background-color: var(--grey-2);
+    border-color: var(--grey-3);
+  }
+  .subtext {
+    color: var(--grey-6);
+  }
+}
+
+.pricingCard h3 {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+.price {
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+
+.pricingCard ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 2rem;
+  flex-grow: 1;
+}
+
+.pricingCard li {
+  margin-bottom: 0.75rem;
+  color: var(--grey-5);
+  font-size: 0.9rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  .pricingCard li {
+    color: var(--grey-6);
+  }
+}
+
+.btn {
+  padding: 1rem;
+  border: none;
+  border-radius: 9999px; /* pill shape */
+  font-weight: 500;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  width: 100%;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+}
+
+.btnSecondary {
+  background: linear-gradient(to right, #e94057, #f27121);
+  color: var(--grey-10);
+}
+
+.btnPrimary {
+  background: linear-gradient(to right, #20b2aa, #007fff);
+  color: var(--grey-10);
+}
+
+.btnAccent {
+    background: linear-gradient(to right, #ffd200, #f7971e);
+    color: var(--grey-0);
+}
+
+.mostPopular {
+  position: relative;
+  border-width: 2px;
+  border-color: var(--grey-0);
+}
+@media (prefers-color-scheme: dark) {
+  .mostPopular {
+    border-color: var(--grey-10);
+  }
+}
+
+.popularLabel {
+  position: absolute;
+  top: -1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--grey-8);
+  color: var(--grey-0);
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+@media (prefers-color-scheme: dark) {
+  .popularLabel {
+    background-color: var(--grey-3);
+    color: var(--grey-10);
+  }
+}
+
+
+/* Tablet */
+@media (min-width: 768px) {
+  .headline { font-size: 1.6rem; }
+  .subtext { font-size: 1rem; }
+  .pricingCard li { font-size: 0.9rem; }
+  .pricingGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .btn { width: 80%; margin: 0 auto; }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  .headline { font-size: 2rem; }
+  .subtext { font-size: 1.2rem; }
+  .pricingCard li { font-size: 1rem; }
+  .pricingGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .pricingCard {
+    padding: 2.5rem;
+  }
+  .btn { width: 220px; }
+}

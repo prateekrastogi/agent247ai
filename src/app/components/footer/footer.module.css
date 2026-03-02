@@ -1,0 +1,244 @@
+/* Footer Styles: /packages/frontend/src/app/components/footer/footer.module.css */
+
+.footer {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  padding: 3rem 3rem 2rem;
+  border-top: 1px solid var(--grey-8);
+  font-family: var(--font-secondary);
+}
+
+@media (prefers-color-scheme: dark) {
+  .footer {
+    border-top: 1px solid var(--grey-3);
+  }
+}
+
+.footerGrid {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* Added for vertical alignment */
+  gap: 2.5rem;
+  flex-wrap: wrap;
+}
+
+.leftColumn, .centerColumn, .rightColumn {
+  flex: 1;
+  min-width: 200px; /* Prevents columns from becoming too narrow */
+}
+
+.leftColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.logoContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.logo {
+  height: 32px;
+  width: auto;
+}
+
+.brandName {
+  font-size: 1.25rem; /* 20px */
+  font-weight: 600;
+}
+
+
+
+.centerColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.navLinks {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.navLink a {
+  font-size: 1rem; /* 16px */
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-color);
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.navLink a:hover {
+  opacity: 0.7;
+}
+
+.rightColumn {
+  text-align: right;
+}
+
+.rightTagline {
+  font-size: 0.875rem; /* 14px */
+  color: var(--grey-4);
+  font-style: italic;
+  margin-top: -0px; /* Adjust for vertical alignment on desktop */
+}
+
+@media (prefers-color-scheme: dark) {
+  .rightTagline {
+    color: var(--grey-7);
+  }
+}
+
+.legalBar {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--grey-8);
+  text-align: center;
+  font-size: 0.75rem; /* 12px */
+  color: var(--grey-5);
+}
+
+@media (prefers-color-scheme: dark) {
+  .legalBar {
+    border-top: 1px solid var(--grey-3);
+    color: var(--grey-6);
+  }
+}
+
+/* Tablet Styles (768px - 1199px) */
+@media (max-width: 1199px) and (min-width: 768px) {
+  .footer {
+    padding: 2rem;
+  }
+
+  .footerGrid {
+    flex-direction: column; /* Stack columns */
+    align-items: center; /* Center horizontally */
+    gap: 2rem;
+  }
+
+  .logo {
+    height: 24px;
+  }
+
+  .brandName {
+    font-size: 1.125rem; /* 18px */
+  }
+
+  .navLink a {
+    font-size: 0.9375rem; /* 15px */
+  }
+
+  .leftColumn, .centerColumn, .rightColumn {
+    align-items: center;
+    text-align: center;
+    width: 100%;
+  }
+
+  .rightColumn {
+    margin-top: 1rem;
+  }
+
+  .centerColumn {
+    align-items: center;
+  }
+}
+
+/* Mobile Styles (≤ 767px) */
+@media (max-width: 767px) {
+  .footer {
+    padding: 1.5rem 1rem;
+  }
+
+  .footerGrid {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 2rem;
+  }
+
+  .leftColumn, .centerColumn, .rightColumn {
+    align-items: center;
+    text-align: center;
+    width: 100%;
+  }
+
+  .rightColumn {
+    text-align: center;
+  }
+
+  .logo {
+    height: 20px;
+  }
+
+  .brandName {
+    font-size: 1rem; /* 16px */
+  }
+
+  .navLinks {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .navLink a {
+    line-height: 2rem;
+  }
+
+  .rightTagline {
+    margin-top: 0;
+  }
+
+  .legalBar {
+    margin-top: 2rem;
+    padding-top: 1rem;
+  }
+}
+
+.legalLinksBar {
+  text-align: center;
+  margin-top: 0.5rem; /* Small margin between copyright and links */
+  font-size: 0.75rem; /* Same as legalBar */
+  color: var(--grey-5); /* Same as legalBar */
+}
+
+@media (prefers-color-scheme: dark) {
+  .legalLinksBar {
+    color: var(--grey-6); /* Same as legalBar */
+  }
+}
+
+.legalLink {
+  color: var(--grey-5); /* Same as legalBar */
+  text-decoration: none;
+  margin: 0 0.5rem; /* Spacing between links */
+  transition: opacity 0.2s ease;
+  position: relative;
+}
+
+.legalLink:not(:last-child)::after {
+  content: '\2022'; /* Unicode for bullet point */
+  position: absolute;
+  right: -0.75rem; /* Adjust as needed for spacing */
+  color: var(--grey-5); /* Match link color */
+}
+
+@media (prefers-color-scheme: dark) {
+  .legalLink {
+    color: var(--grey-6); /* Same as legalBar */
+  }
+
+  .legalLink:not(:last-child)::after {
+    color: var(--grey-6); /* Match link color */
+  }
+}
+
+.legalLink:hover {
+  opacity: 0.7;
+}

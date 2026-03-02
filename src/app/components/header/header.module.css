@@ -1,0 +1,207 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 0 1rem; /* Default padding for mobile */
+  box-sizing: border-box; /* Ensure padding is included in width */
+  z-index: 1000;
+  transition: background-color 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgba(var(--grey-10-rgb), 0.65);
+  border-bottom: 1px solid var(--grey-8);
+  min-height: clamp(38px, 4.5vw, 75px);
+}
+
+@media (min-width: 1024px) {
+  .header {
+    padding: 0 2rem; /* Increased padding for desktop */
+  }
+}
+
+.header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+@media (prefers-color-scheme: dark) {
+  .header {
+    background-color: rgba(var(--grey-1-rgb), 0.65);
+    border-bottom: 1px solid var(--grey-3);
+  }
+}
+
+.logoContainer {
+  flex-shrink: 0;
+}
+
+.logo {
+  height: clamp(24px, 3vw, 48px);
+  width: auto;
+  transition: filter 0.3s ease;
+}
+
+.logoContainer:hover .logo,
+.logo:active,
+.logo:focus {
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.8));
+}
+
+@media (prefers-color-scheme: dark) {
+  .logoContainer:hover .logo,
+  .logo:active,
+  .logo:focus {
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.8));
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  .logoContainer:hover .logo,
+  .logo:active,
+  .logo:focus {
+    filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5));
+  }
+}
+
+.brandName {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-weight: 600;
+  color: var(--text-color); /* Use text color from globals.css */
+  white-space: nowrap; /* Prevent text from wrapping */
+  transition: font-size 0.3s ease, opacity 0.3s ease, transform 0.3s ease; /* Added transform to transition */
+  /* Initial font size based on logo height (e.g., 48px * 0.7 = 33.6px for largest logo) */
+  font-size: clamp(16.8px, 2.1vw, 33.6px); /* 24px * 0.7 = 16.8px, 48px * 0.7 = 33.6px */
+}
+
+.header.scrolled .brandName {
+  opacity: 0;
+  transform: translateX(-50%) scale(0.8); /* Shrink slightly */
+}
+
+/* Responsive rules for brand name */
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .brandName {
+    font-size: 16.1px; /* 23px * 0.7 */
+  }
+}
+
+@media (min-width: 1024px) {
+  .brandName {
+    font-size: 21px; /* 30px * 0.7 */
+  }
+}
+
+@media (min-width: 1440px) {
+  .brandName {
+    font-size: 33.6px; /* 48px * 0.7 */
+  }
+}
+
+/* Fine-tuned breakpoints for logo */
+@media (max-width: 480px) {
+  .logo { height: 24px; }
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  .logo { height: 23px; }
+}
+@media (min-width: 1024px) {
+  .logo { height: 30px; }
+}
+@media (min-width: 1440px) {
+  .logo { height: 48px; }
+}
+
+/* Fine-tuned breakpoints for header */
+@media (max-width: 480px) {
+  .header { min-height: 38px; }
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  .header { min-height: 38px; }
+}
+@media (min-width: 1024px) {
+  .header { min-height: 47px; }
+}
+@media (min-width: 1440px) {
+  .header { min-height: 75px; }
+}
+
+.loginButton {
+  padding: 0.5em 1.2em;
+  border: none;
+  border-radius: 9999px; /* Pill shape */
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  flex-shrink: 0; /* Prevent shrinking */
+  box-sizing: border-box; /* Ensure padding is included in width */
+  font-size: 0.9rem; /* slightly smaller than brand name */
+  display: flex; /* Use flexbox for alignment */
+  align-items: center; /* Center content vertically */
+  justify-content: center; /* Center content horizontally */
+}
+
+/* Light mode styles */
+.loginButton {
+  background-color: var(--grey-1);
+  color: var(--grey-10);
+}
+
+.loginButton:hover {
+  background-color: var(--grey-3);
+}
+
+/* Dark mode styles */
+@media (prefers-color-scheme: dark) {
+  .loginButton {
+    background-color: var(--grey-10);
+    color: var(--grey-1);
+  }
+
+  .loginButton:hover {
+    background-color: var(--grey-8);
+  }
+}
+
+/* Responsive font size for button text */
+@media (max-width: 480px) {
+  .loginButton {
+    font-size: 0.75rem; /* ~12px */
+    padding: 0.5em 1em;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .loginButton {
+    font-size: 0.875rem; /* ~14px */
+  }
+}
+
+@media (min-width: 1024px) {
+  .loginButton {
+    font-size: 1rem; /* ~16px */
+  }
+}
+
+@media (min-width: 1440px) {
+  .loginButton {
+    font-size: 1.125rem; /* ~18px */
+  }
+}
+
+.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}

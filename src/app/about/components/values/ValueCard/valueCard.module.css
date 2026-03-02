@@ -1,0 +1,51 @@
+.card {
+  background-color: var(--grey-8);
+  padding: 2rem;
+  border-radius: 8px;
+  text-align: center;
+  border: 1px solid var(--grey-6);
+}
+
+@media (prefers-color-scheme: dark) {
+  .card {
+    background-color: var(--grey-3);
+    border-color: var(--grey-5);
+  }
+}
+
+.icon {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+  color: var(--grey-5);
+}
+
+@media (prefers-color-scheme: dark) {
+  .icon {
+    color: var(--grey-6);
+  }
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--grey-3);
+}
+
+@media (prefers-color-scheme: dark) {
+  .title {
+    color: var(--grey-8);
+  }
+}
+
+.copy {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--grey-5);
+}
+
+@media (prefers-color-scheme: dark) {
+  .copy {
+    color: var(--grey-6);
+  }
+}

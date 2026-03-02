@@ -1,0 +1,91 @@
+.explainerSection {
+  padding: 4rem 1rem;
+  color: var(--text-color);
+}
+
+@media (prefers-color-scheme: dark) {
+  .explainerSection {
+    background-color: var(--grey-4); /* 1 shade lighter than --grey-1 (dark mode background) */
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  .explainerSection {
+    background-color: var(--grey-7); /* Light background for light mode */
+  }
+}
+
+.contentWrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.sectionTitle {
+  font-size: clamp(28px, 4vw, 36px);
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  font-family: var(--font-primary);
+}
+
+.subtext {
+  font-size: 18px;
+  font-weight: 400;
+  max-width: 60ch;
+  margin: 0 auto 2.5rem auto;
+  line-height: 1.5;
+}
+
+@media (prefers-color-scheme: light) {
+  .subtext {
+    color: var(--grey-2); /* 2 steps softer than black for light mode */
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .subtext {
+    color: var(--grey-8); /* 2 steps softer than white for dark mode */
+  }
+}
+
+.stepsGrid {
+  display: grid;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.stepsGrid > * {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 350ms ease-out, transform 350ms ease-out;
+}
+
+.stepsGrid.visible > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (min-width: 768px) {
+  .stepsGrid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+}
+
+.copyHygiene {
+  font-size: 0.85rem;
+  margin-top: 1rem;
+}
+
+@media (prefers-color-scheme: light) {
+  .copyHygiene {
+    color: var(--grey-5); /* Darker for light background */
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .copyHygiene {
+    color: var(--grey-6); /* Lighter for dark background */
+  }
+}
+

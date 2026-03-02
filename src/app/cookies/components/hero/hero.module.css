@@ -1,0 +1,81 @@
+/* Hero Section Styles */
+.heroContainer {
+  text-align: center;
+  padding-top: calc(2rem + var(--header-height));
+  padding-bottom: 4rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  background-color: var(--grey-9);
+  border-bottom: 1px solid var(--grey-8);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+  .heroContainer {
+    padding-top: calc(1rem + var(--header-height));
+    padding-bottom: 2rem;
+  }
+}
+
+/* Tablet */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .heroContainer {
+    padding-top: calc(1.5rem + var(--header-height));
+    padding-bottom: 3rem;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .heroContainer {
+    background-color: var(--grey-2);
+    border-bottom: 1px solid var(--grey-3);
+  }
+}
+
+.headline {
+  font-family: var(--font-primary);
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--text-color);
+  margin-bottom: 2rem; /* Adjusted spacing */
+}
+
+.subtext {
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--grey-5);
+  max-width: 680px;
+  margin: 0 auto 2rem; /* Adjusted spacing */
+}
+
+@media (prefers-color-scheme: dark) {
+  .subtext {
+    color: var(--grey-6);
+  }
+}
+
+/* Responsive Font Sizes */
+/* Mobile */
+@media (max-width: 767px) {
+  .headline {
+    font-size: clamp(1.75rem, 7vw, 2rem); /* ≈ 28-32px */
+  }
+  .subtext {
+    font-size: clamp(0.9375rem, 4vw, 1rem); /* ≈ 15-16px */
+  }
+}
+
+
+/* Desktop */
+@media (min-width: 1024px) {
+  .headline {
+    font-size: clamp(3rem, 5vw, 3.75rem); /* ≈ 48-60px */
+  }
+  .subtext {
+    font-size: clamp(1.125rem, 2vw, 1.25rem); /* ≈ 18-20px */
+  }
+}

@@ -1,7 +1,7 @@
 
 import Link from 'next/link';
 import styles from './header.module.css';
-import LoginButtonAndModal from './LoginButtonAndModal';
+import BookDemoButton from './BookDemoButton';
 
 const Header = () => {
   return (
@@ -18,7 +18,7 @@ const Header = () => {
           </picture>
         </Link>
       </div>
-      <LoginButtonAndModal />
+      <BookDemoButton />
     </header>
   );
 };

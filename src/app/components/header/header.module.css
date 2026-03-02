@@ -137,7 +137,7 @@
   .header { min-height: 75px; }
 }
 
-.loginButton {
+.bookDemoButton {
   padding: 0.5em 1.2em;
   border: none;
   border-radius: 9999px; /* Pill shape */
@@ -153,7 +153,7 @@
 }
 
 /* Light mode styles */
-.loginButton {
+.bookDemoButton {
   background-color: var(--grey-1);
   color: var(--grey-10);
 }
@@ -164,7 +164,7 @@
 
 /* Dark mode styles */
 @media (prefers-color-scheme: dark) {
-  .loginButton {
+  .bookDemoButton {
     background-color: var(--grey-10);
     color: var(--grey-1);
   }
@@ -176,26 +176,26 @@
 
 /* Responsive font size for button text */
 @media (max-width: 480px) {
-  .loginButton {
+  .bookDemoButton {
     font-size: 0.75rem; /* ~12px */
     padding: 0.5em 1em;
   }
 }
 
 @media (min-width: 768px) and (max-width: 1023px) {
-  .loginButton {
+  .bookDemoButton {
     font-size: 0.875rem; /* ~14px */
   }
 }
 
 @media (min-width: 1024px) {
-  .loginButton {
+  .bookDemoButton {
     font-size: 1rem; /* ~16px */
   }
 }
 
 @media (min-width: 1440px) {
-  .loginButton {
+  .bookDemoButton {
     font-size: 1.125rem; /* ~18px */
   }
 }

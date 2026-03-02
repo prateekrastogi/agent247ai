@@ -4,10 +4,10 @@ import { useState, useEffect } from 'react';
 import styles from './header.module.css';
 
 interface ScrollHandlerProps {
-  onLoginClick: () => void;
+  onBookDemoClick: () => void;
 }
 
-const ScrollHandler: React.FC<ScrollHandlerProps> = ({ onLoginClick }) => {
+const ScrollHandler: React.FC<ScrollHandlerProps> = ({ onBookDemoClick }) => {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -26,7 +26,7 @@ const ScrollHandler: React.FC<ScrollHandlerProps> = ({ onLoginClick }) => {
   return (
     <>
       <div className={`${styles.brandName} ${scrolled ? styles.hidden : ''}`}>ShareFollowLike</div>
-      <button className={styles.loginButton} onClick={onLoginClick}>Sign in</button>
+      <button className={styles.bookDemoButton} onClick={onBookDemoClick}>Book a Demo</button>
     </>
   );
 };

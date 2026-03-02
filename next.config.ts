@@ -6,13 +6,10 @@ const nextConfig: NextConfig = {
     return [
       {
         source: '/auth/google',
-        destination: `${process.env.NEXT_PUBLIC_BACKEND_URL}/auth/google`,
+        destination: `${process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:8080'}/auth/google`,
       },
     ];
   },
 };
 
 export default nextConfig;
-
-import { initOpenNextCloudflareForDev } from "@opennextjs/cloudflare";
-initOpenNextCloudflareForDev();

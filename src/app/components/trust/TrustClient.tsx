@@ -2,8 +2,7 @@
 
 import React from 'react';
 import styles from './trust.module.css';
-import { useIntersectionObserver } from '../../hooks/useIntersectionObserver';
-import { SiCrunchbase, SiProducthunt, SiYcombinator, SiCnet, SiTwilio, SiCaldotcom, SiHubspot, SiGooglecalendar, SiWhatsapp, SiGmail } from 'react-icons/si';
+import { SiTwilio, SiCaldotcom, SiHubspot, SiGooglecalendar, SiWhatsapp, SiGmail } from 'react-icons/si';
 import Marquee from "react-fast-marquee";
 import { PiMicrosoftOutlookLogoFill } from 'react-icons/pi';
 
@@ -13,33 +12,10 @@ interface TrustClientProps {
 }
 
 const TrustClient: React.FC<TrustClientProps> = ({ headline, subtext }) => {
-  const [sectionRef, isVisible] = useIntersectionObserver({ threshold: 0.1 });
-
-  const logos = [
-    { icon: SiCrunchbase, alt: 'Crunchbase Icon' },
-    { icon: SiProducthunt, alt: 'Product Hunt Icon' },
-    { icon: SiYcombinator, alt: 'Y Combinator Icon' },
-    { icon: SiCnet, alt: 'CNET Icon' },
-  ];
-
   return (
-    <section
-      ref={sectionRef}
-      className={styles.trustSection}
-    >
+    <section className={styles.trustSection}>
       <h2 className={styles.headline}>{headline}</h2>
       <p className={styles.subtext}>{subtext}</p>
-      <div className={styles.logoGrid}>
-        {logos.map((logo, index) => (
-          <div
-            key={index}
-            className={`${styles.logoItem} ${isVisible ? styles.logoFadeIn : ''}`}
-            style={{ transitionDelay: `${index * 100}ms` }} // Staggered delay
-          >
-            {React.createElement(logo.icon, { className: styles.logo })}
-          </div>
-        ))}
-      </div>
       <div className={styles.socialProofContainer}>
         <p className={styles.socialTitle}>Works With the Tools You Already Use</p>
         <Marquee autoFill={true}>

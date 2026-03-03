@@ -1,4 +1,3 @@
-
 .contactSection {
   background-color: var(--grey-9);
   padding: 4rem 1rem;
@@ -66,12 +65,15 @@
 }
 
 .mailLink {
-  color: inherit; /* Inherit color from parent */
-  text-decoration: none; /* Remove underline */
+  color: inherit;
+  /* Inherit color from parent */
+  text-decoration: none;
+  /* Remove underline */
 }
 
 .mailLink:hover {
-  text-decoration: underline; /* Add underline on hover for interactivity */
+  text-decoration: underline;
+  /* Add underline on hover for interactivity */
 }
 
 @media (prefers-color-scheme: dark) {
@@ -110,6 +112,7 @@
 }
 
 @media (prefers-color-scheme: dark) {
+
   .formGroup input,
   .formGroup textarea {
     border: 1px solid var(--grey-4);
@@ -150,33 +153,71 @@
   background-color: var(--grey-4);
 }
 
+.successMessage {
+  color: #28a745;
+  margin-top: 1rem;
+  font-weight: 500;
+  text-align: center;
+}
+
+.errorMessage {
+  color: #dc3545;
+  margin-top: 1rem;
+  font-weight: 500;
+  text-align: center;
+}
+
+@media (prefers-color-scheme: dark) {
+  .successMessage {
+    color: #4cd137;
+  }
+
+  .errorMessage {
+    color: #ff4757;
+  }
+}
+
 @media (max-width: 1023px) and (min-width: 768px) {
   .contactContent {
-    flex-direction: row; /* Changed to row for vertical separator */
-    gap: 2rem; /* Keep original gap */
+    flex-direction: row;
+    /* Changed to row for vertical separator */
+    gap: 2rem;
+    /* Keep original gap */
   }
 
   .leftColumn {
-    flex: 3; /* Keep original flex */
-    min-width: 300px; /* Keep original min-width */
-    padding-right: 2rem; /* Keep original padding */
-    border-right: 1px solid var(--grey-8); /* Reintroduce vertical border */
-    border-bottom: none; /* Remove horizontal border */
-    padding-bottom: 0; /* Remove extra padding */
+    flex: 3;
+    /* Keep original flex */
+    min-width: 300px;
+    /* Keep original min-width */
+    padding-right: 2rem;
+    /* Keep original padding */
+    border-right: 1px solid var(--grey-8);
+    /* Reintroduce vertical border */
+    border-bottom: none;
+    /* Remove horizontal border */
+    padding-bottom: 0;
+    /* Remove extra padding */
   }
 
   @media (prefers-color-scheme: dark) {
     .leftColumn {
-      border-right: 1px solid var(--grey-3); /* Reintroduce vertical border */
-      border-bottom: none; /* Remove horizontal border */
+      border-right: 1px solid var(--grey-3);
+      /* Reintroduce vertical border */
+      border-bottom: none;
+      /* Remove horizontal border */
     }
   }
 
   .rightColumn {
-    flex: 2; /* Keep original flex */
-    min-width: 300px; /* Keep original min-width */
-    padding-left: 2rem; /* Keep original padding */
-    padding-top: 0; /* Remove extra padding */
+    flex: 2;
+    /* Keep original flex */
+    min-width: 300px;
+    /* Keep original min-width */
+    padding-left: 2rem;
+    /* Keep original padding */
+    padding-top: 0;
+    /* Remove extra padding */
   }
 
   .headline {
@@ -186,34 +227,51 @@
 
 @media (max-width: 767px) {
   .contactContent {
-    flex-direction: column; /* Revert to column */
+    flex-direction: column;
+    /* Revert to column */
   }
 
   .leftColumn {
-    flex: none; /* Revert flex */
-    width: 100%; /* Revert width */
-    min-width: unset; /* Revert min-width */
-    padding-left: 0; /* Revert padding */
-    padding-right: 0; /* Revert padding */
-    border-right: none; /* Remove vertical border */
-    border-bottom: 1px solid var(--grey-8); /* Add horizontal border */
-    padding-bottom: 2rem; /* Add padding below separator */
+    flex: none;
+    /* Revert flex */
+    width: 100%;
+    /* Revert width */
+    min-width: unset;
+    /* Revert min-width */
+    padding-left: 0;
+    /* Revert padding */
+    padding-right: 0;
+    /* Revert padding */
+    border-right: none;
+    /* Remove vertical border */
+    border-bottom: 1px solid var(--grey-8);
+    /* Add horizontal border */
+    padding-bottom: 2rem;
+    /* Add padding below separator */
   }
 
   @media (prefers-color-scheme: dark) {
     .leftColumn {
-      border-bottom: 1px solid var(--grey-3); /* Add horizontal border for dark mode */
-      border-right: none; /* Remove vertical border */
+      border-bottom: 1px solid var(--grey-3);
+      /* Add horizontal border for dark mode */
+      border-right: none;
+      /* Remove vertical border */
     }
   }
 
   .rightColumn {
-    flex: none; /* Revert flex */
-    width: 100%; /* Revert width */
-    min-width: unset; /* Revert min-width */
-    padding-left: 0; /* Revert padding */
-    padding-right: 0; /* Revert padding */
-    padding-top: 2rem; /* Add padding above right column */
+    flex: none;
+    /* Revert flex */
+    width: 100%;
+    /* Revert width */
+    min-width: unset;
+    /* Revert min-width */
+    padding-left: 0;
+    /* Revert padding */
+    padding-right: 0;
+    /* Revert padding */
+    padding-top: 2rem;
+    /* Add padding above right column */
   }
 
   .headline {

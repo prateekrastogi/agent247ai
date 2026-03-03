@@ -1,9 +1,16 @@
 
-import React from 'react';
+'use client';
+
+import React, { useActionState } from 'react';
 import styles from './contact.module.css';
 import { FiMapPin, FiMail } from 'react-icons/fi';
+import { sendEmail, FormState } from './actions';
+
+const initialState: FormState = null;
 
 const Contact: React.FC = () => {
+  const [state, formAction, isPending] = useActionState(sendEmail, initialState);
+
   return (
     <section id="contact" className={styles.contactSection}>
       <div className={styles.contactContent}>
@@ -19,20 +26,34 @@ const Contact: React.FC = () => {
           </div>
         </div>
         <div className={styles.rightColumn}>
-          <form className={styles.contactForm}>
+          <form action={formAction} className={styles.contactForm}>
             <div className={styles.formGroup}>
               <label htmlFor="name">Name</label>
-              <input type="text" id="name" name="name" required />
+              <input type="text" id="name" name="name" required disabled={isPending} />
             </div>
             <div className={styles.formGroup}>
               <label htmlFor="email">Email</label>
-              <input type="email" id="email" name="email" required />
+              <input type="email" id="email" name="email" required disabled={isPending} />
             </div>
             <div className={styles.formGroup}>
               <label htmlFor="message">Message</label>
-              <textarea id="message" name="message" rows={5} required></textarea>
+              <textarea id="message" name="message" rows={5} required disabled={isPending}></textarea>
             </div>
-            <button type="submit" className={styles.submitButton}>Send Message</button>
+
+            <button
+              type="submit"
+              className={styles.submitButton}
+              disabled={isPending}
+            >
+              {isPending ? 'Sending...' : 'Send Message'}
+            </button>
+
+            {state?.success && (
+              <p className={styles.successMessage}>{state.success}</p>
+            )}
+            {state?.error && (
+              <p className={styles.errorMessage}>{state.error}</p>
+            )}
           </form>
         </div>
       </div>

@@ -20,9 +20,9 @@ const Team: React.FC = () => {
         </div>
         <div className={styles.teamGrid}>
           {/* Placeholder team images */}
-          <Image src="/team_1.png" alt="Team 1" width={1080} height={1080} className={styles.teamMemberImage} />
-          <Image src="/team_2.png" alt="Team 2" width={1080} height={1080} className={styles.teamMemberImage} />
-          <Image src="/team_3.png" alt="Team 3" width={1080} height={1080} className={styles.teamMemberImage} />
+          <Image src="/team1.png" alt="Team 1" width={1080} height={1080} className={styles.teamMemberImage} />
+          <Image src="/team2.png" alt="Team 2" width={1080} height={1080} className={styles.teamMemberImage} />
+          <Image src="/team3.png" alt="Team 3" width={1080} height={1080} className={styles.teamMemberImage} />
         </div>
       </div>
     </section>

@@ -15,8 +15,8 @@ const Contact: React.FC = () => {
           </p>
           <div className={styles.secondaryInfo}>
             <p><FiMapPin /> 8 The Green, Suite A, Dover, Delaware 19901, United States</p>
-            <p><FiMail style={{verticalAlign: 'middle' }}/><a href="mailto:support@sharefollowlike.com" className={styles.mailLink}> support@sharefollowlike.com</a></p>
-            </div>
+            <p><FiMail style={{ verticalAlign: 'middle' }} /><a href="mailto:support@agent247ai.com" className={styles.mailLink}> support@sharefollowlike.com</a></p>
+          </div>
         </div>
         <div className={styles.rightColumn}>
           <form className={styles.contactForm}>

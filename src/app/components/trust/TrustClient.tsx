@@ -4,7 +4,6 @@ import React from 'react';
 import styles from './trust.module.css';
 import { useIntersectionObserver } from '../../hooks/useIntersectionObserver';
 import { SiCrunchbase, SiProducthunt, SiYcombinator, SiCnet, SiTwilio, SiCaldotcom, SiHubspot, SiGooglecalendar } from 'react-icons/si';
-import { FaAngellist, FaDiscord, FaSnapchatGhost, FaTwitch, FaGlobe, FaWhatsapp } from 'react-icons/fa';
 import Marquee from "react-fast-marquee";
 
 interface TrustClientProps {
@@ -16,12 +15,10 @@ const TrustClient: React.FC<TrustClientProps> = ({ headline, subtext }) => {
   const [sectionRef, isVisible] = useIntersectionObserver({ threshold: 0.1 });
 
   const logos = [
-    { icon: FaWhatsapp, alt: 'WhatsApp Icon' },
     { icon: SiCrunchbase, alt: 'Crunchbase Icon' },
     { icon: SiProducthunt, alt: 'Product Hunt Icon' },
     { icon: SiYcombinator, alt: 'Y Combinator Icon' },
     { icon: SiCnet, alt: 'CNET Icon' },
-    { icon: FaAngellist, alt: 'Angellist Icon' },
   ];
 
   return (
@@ -49,7 +46,7 @@ const TrustClient: React.FC<TrustClientProps> = ({ headline, subtext }) => {
             <a href="#" aria-label="Jobber"><span className={styles.jobberLogo} role="img" aria-label="Jobber"></span></a>
             <a href="#" aria-label="Housecall Pro"><span className={styles.houseCallProLogo} role="img" aria-label="Housecall Pro"></span></a>
             <a href="#" aria-label="ServiceTitan"><span className={styles.serviceTitanLogo} role="img" aria-label="ServiceTitan"></span></a>
-            <a href="#" aria-label="WhatsApp"><FaWhatsapp /></a>
+            <a href="#" aria-label="Google Business"><span className={styles.googleBusinessLogo} role="img" aria-label="Google Business"></span></a>
             <a href="#" aria-label="Twilio"><SiTwilio /></a>
             <a href="#" aria-label="Google Calendar"><SiGooglecalendar /></a>
             <a href="#" aria-label="Cal.com"><SiCaldotcom /></a>

@@ -224,7 +224,7 @@
 .jobberLogo,
 .houseCallProLogo,
 .serviceTitanLogo,
-.googleBusinessProfileLogo {
+.googleBusinessLogo {
   display: block;
   /* Changed from inline-block to match SVG block behavior */
   height: 0.8em;
@@ -258,11 +258,11 @@
   -webkit-mask-image: url('/ServiceTitan.png');
 }
 
-.googleBusinessProfileLogo {
+.googleBusinessLogo {
   width: 2.13em;
   /* 2.66:1 ratio based on 400x150 */
-  mask-image: url('/Google Business Profile.png');
-  -webkit-mask-image: url('/Google Business Profile.png');
+  mask-image: url('/google_business.png');
+  -webkit-mask-image: url('/google_business.png');
 }
 
 @media (max-width: 767px) {
@@ -278,7 +278,7 @@
     width: 3.9em;
   }
 
-  .googleBusinessProfileLogo {
+  .googleBusinessLogo {
     width: 2em;
   }
 }

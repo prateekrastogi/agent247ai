@@ -29,12 +29,12 @@ export async function sendEmail(prevState: FormState, formData: FormData): Promi
 
         if (error) {
             console.error('Resend error:', error);
-            return { error: 'Failed to send email. Please try again later.' };
+            return { error: 'Didn\'t go through. Give it another shot or drop us an email.' };
         }
 
-        return { success: 'Your message has been sent successfully!' };
+        return { success: 'You\'re all set. We\'ll be in touch shortly.' };
     } catch (error) {
         console.error('Unexpected error:', error);
-        return { error: 'An unexpected error occurred. Please try again later.' };
+        return { error: 'Something went wrong on our end. Please try again or email us directly.' };
     }
 }

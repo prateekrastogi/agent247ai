@@ -3,7 +3,7 @@
 
 import React, { useActionState } from 'react';
 import styles from './contact.module.css';
-import { FiMapPin, FiMail } from 'react-icons/fi';
+import { FiMapPin, FiMail, FiCheckCircle, FiAlertCircle } from 'react-icons/fi';
 import { sendEmail, FormState } from './actions';
 
 const initialState: FormState = null;
@@ -49,10 +49,16 @@ const Contact: React.FC = () => {
             </button>
 
             {state?.success && (
-              <p className={styles.successMessage}>{state.success}</p>
+              <p className={styles.successMessage}>
+                <FiCheckCircle style={{ verticalAlign: 'middle', marginRight: '8px' }} />
+                {state.success}
+              </p>
             )}
             {state?.error && (
-              <p className={styles.errorMessage}>{state.error}</p>
+              <p className={styles.errorMessage}>
+                <FiAlertCircle style={{ verticalAlign: 'middle', marginRight: '8px' }} />
+                {state.error}
+              </p>
             )}
           </form>
         </div>

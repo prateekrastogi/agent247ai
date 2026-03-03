@@ -65,6 +65,10 @@
   /* Gap from previous section for desktop */
 }
 
+.subtextBounce {
+  animation: trustSubtextBounce 1.2s ease-in-out 1;
+}
+
 @media (prefers-color-scheme: light) {
   .subtext {
     color: var(--grey-4);
@@ -87,6 +91,28 @@
     /* Mobile */
     margin-bottom: 2rem;
     /* Gap from previous section for mobile */
+  }
+}
+
+@keyframes trustSubtextBounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-8px);
+  }
+  60% {
+    transform: translateY(-4px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .subtextBounce {
+    animation: none;
   }
 }
 

@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import styles from './trust.module.css';
 import { SiTwilio, SiCaldotcom, SiHubspot, SiGooglecalendar, SiWhatsapp, SiGmail } from 'react-icons/si';
 import Marquee from "react-fast-marquee";
@@ -12,10 +12,33 @@ interface TrustClientProps {
 }
 
 const TrustClient: React.FC<TrustClientProps> = ({ headline, subtext }) => {
+  const sectionRef = useRef<HTMLElement>(null);
+  const [hasEnteredView, setHasEnteredView] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setHasEnteredView(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.2 }
+    );
+
+    const current = sectionRef.current;
+    if (current) observer.observe(current);
+
+    return () => {
+      if (current) observer.unobserve(current);
+      observer.disconnect();
+    };
+  }, []);
+
   return (
-    <section className={styles.trustSection}>
+    <section ref={sectionRef} className={styles.trustSection}>
       <h2 className={styles.headline}>{headline}</h2>
-      <p className={styles.subtext}>{subtext}</p>
+      <p className={`${styles.subtext} ${hasEnteredView ? styles.subtextBounce : ''}`}>{subtext}</p>
       <div className={styles.socialProofContainer}>
         <p className={styles.socialTitle}>Works With the Tools You Already Use</p>
         <Marquee autoFill={true}>

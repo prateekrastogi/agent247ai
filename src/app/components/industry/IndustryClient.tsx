@@ -2,7 +2,7 @@
 'use client';
 
 import styles from './industry.module.css';
-import { FaInstagram, FaTiktok, FaYoutube, FaFacebook, FaLinkedin, FaSpotify, FaGoogle, FaDiscord, FaSnapchatGhost, FaTwitch, FaGlobe } from 'react-icons/fa';
+import { FaInstagram, FaTiktok, FaYoutube, FaFacebook, FaLinkedin, FaSpotify, FaGoogle, FaDiscord, FaSnapchatGhost, FaTwitch, FaGlobe, FaSnowflake, FaFire, FaTools } from 'react-icons/fa';
 import { FaXTwitter } from 'react-icons/fa6';
 import Marquee from "react-fast-marquee";
 
@@ -10,20 +10,26 @@ const IndustryClient = () => {
     return (
         <section className={styles.industrySection}>
             <div className={styles.industryContent}>
-                <h2 className={styles.title}>Global Reach, Local Impact</h2>
-                <p className={styles.subtitle}>Our AI agents speak your industry's language</p>
+                <h2 className={styles.title}>Built for Real HVAC Scenarios</h2>
+                <p className={styles.subtitle}>From emergency breakdowns to new system installs, our agents handle the full customer lifecycle.</p>
                 <div className={styles.statsContainer}>
                     <div className={styles.stat}>
-                        <h3>10M+</h3>
-                        <p>Smart Orders</p>
+                        <div className={styles.iconWrapper}>
+                            <FaSnowflake className={styles.statIcon} />
+                        </div>
+                        <p>AC Emergency</p>
                     </div>
                     <div className={styles.stat}>
-                        <h3>500K+</h3>
-                        <p>Active Users</p>
+                        <div className={styles.iconWrapper}>
+                            <FaFire className={styles.statIcon} />
+                        </div>
+                        <p>Furnace Repair</p>
                     </div>
                     <div className={styles.stat}>
-                        <h3>7+</h3>
-                        <p>Years Experience</p>
+                        <div className={styles.iconWrapper}>
+                            <FaTools className={styles.statIcon} />
+                        </div>
+                        <p>New Installation</p>
                     </div>
                 </div>
                 <div className={styles.socialProofContainer}>

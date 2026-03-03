@@ -1,23 +1,22 @@
 'use client';
 
 import React from 'react';
-import styles from './featured.module.css';
+import styles from './trust.module.css';
 import { useIntersectionObserver } from '../../hooks/useIntersectionObserver';
-import { SiTechcrunch, SiCrunchbase, SiProducthunt, SiYcombinator, SiCnet } from 'react-icons/si';
-import { FaAngellist, FaInstagram, FaTiktok, FaYoutube, FaFacebook, FaLinkedin, FaSpotify, FaGoogle, FaDiscord, FaSnapchatGhost, FaTwitch, FaGlobe } from 'react-icons/fa';
-import { FaXTwitter } from 'react-icons/fa6';
+import { SiCrunchbase, SiProducthunt, SiYcombinator, SiCnet, SiTwilio, SiCaldotcom, SiHubspot, SiGooglecalendar } from 'react-icons/si';
+import { FaAngellist, FaDiscord, FaSnapchatGhost, FaTwitch, FaGlobe, FaWhatsapp } from 'react-icons/fa';
 import Marquee from "react-fast-marquee";
 
-interface FeaturedClientProps {
+interface TrustClientProps {
   headline: string;
   subtext: string;
 }
 
-const FeaturedClient: React.FC<FeaturedClientProps> = ({ headline, subtext }) => {
+const TrustClient: React.FC<TrustClientProps> = ({ headline, subtext }) => {
   const [sectionRef, isVisible] = useIntersectionObserver({ threshold: 0.1 });
 
   const logos = [
-    { icon: SiTechcrunch, alt: 'TechCrunch Icon' },
+    { icon: FaWhatsapp, alt: 'WhatsApp Icon' },
     { icon: SiCrunchbase, alt: 'Crunchbase Icon' },
     { icon: SiProducthunt, alt: 'Product Hunt Icon' },
     { icon: SiYcombinator, alt: 'Y Combinator Icon' },
@@ -28,7 +27,7 @@ const FeaturedClient: React.FC<FeaturedClientProps> = ({ headline, subtext }) =>
   return (
     <section
       ref={sectionRef}
-      className={styles.featuredOnSection}
+      className={styles.trustSection}
     >
       <h2 className={styles.headline}>{headline}</h2>
       <p className={styles.subtext}>{subtext}</p>
@@ -47,18 +46,14 @@ const FeaturedClient: React.FC<FeaturedClientProps> = ({ headline, subtext }) =>
         <p className={styles.socialTitle}>Industries We Transform</p>
         <Marquee autoFill={true}>
           <div className={styles.socialIcons}>
-            <a href="#" aria-label="Instagram"><FaInstagram /></a>
-            <a href="#" aria-label="TikTok"><FaTiktok /></a>
-            <a href="#" aria-label="YouTube"><FaYoutube /></a>
-            <a href="#" aria-label="Twitter"><FaXTwitter /></a>
-            <a href="#" aria-label="Facebook"><FaFacebook /></a>
-            <a href="#" aria-label="LinkedIn"><FaLinkedin /></a>
-            <a href="#" aria-label="Spotify"><FaSpotify /></a>
-            <a href="#" aria-label="Google"><FaGoogle /></a>
-            <a href="#" aria-label="Discord"><FaDiscord /></a>
-            <a href="#" aria-label="Snapchat"><FaSnapchatGhost /></a>
-            <a href="#" aria-label="Twitch"><FaTwitch /></a>
-            <a href="#" aria-label="Website"><FaGlobe /></a>
+            <a href="#" aria-label="Jobber"><span className={styles.jobberLogo} role="img" aria-label="Jobber"></span></a>
+            <a href="#" aria-label="Housecall Pro"><span className={styles.houseCallProLogo} role="img" aria-label="Housecall Pro"></span></a>
+            <a href="#" aria-label="ServiceTitan"><span className={styles.serviceTitanLogo} role="img" aria-label="ServiceTitan"></span></a>
+            <a href="#" aria-label="WhatsApp"><FaWhatsapp /></a>
+            <a href="#" aria-label="Twilio"><SiTwilio /></a>
+            <a href="#" aria-label="Google Calendar"><SiGooglecalendar /></a>
+            <a href="#" aria-label="Cal.com"><SiCaldotcom /></a>
+            <a href="#" aria-label="HubSpot"><SiHubspot /></a>
           </div>
         </Marquee>
       </div>
@@ -66,4 +61,4 @@ const FeaturedClient: React.FC<FeaturedClientProps> = ({ headline, subtext }) =>
   );
 };
 
-export default FeaturedClient;
+export default TrustClient;

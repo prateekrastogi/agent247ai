@@ -1,13 +1,13 @@
 import React from 'react';
-import FeaturedClient from './FeaturedClient';
+import TrustClient from './TrustClient';
 
-const FeaturedOn: React.FC = () => {
+const Trust: React.FC = () => {
   return (
-    <FeaturedClient
+    <TrustClient
       headline="FEATURED ON"
       subtext="Endorsed by creators, brands, and media"
     />
   );
 };
 
-export default FeaturedOn;
+export default Trust;

@@ -3,8 +3,9 @@
 import React from 'react';
 import styles from './trust.module.css';
 import { useIntersectionObserver } from '../../hooks/useIntersectionObserver';
-import { SiCrunchbase, SiProducthunt, SiYcombinator, SiCnet, SiTwilio, SiCaldotcom, SiHubspot, SiGooglecalendar } from 'react-icons/si';
+import { SiCrunchbase, SiProducthunt, SiYcombinator, SiCnet, SiTwilio, SiCaldotcom, SiHubspot, SiGooglecalendar, SiWhatsapp, SiGmail } from 'react-icons/si';
 import Marquee from "react-fast-marquee";
+import { PiMicrosoftOutlookLogoFill } from 'react-icons/pi';
 
 interface TrustClientProps {
   headline: string;
@@ -40,7 +41,7 @@ const TrustClient: React.FC<TrustClientProps> = ({ headline, subtext }) => {
         ))}
       </div>
       <div className={styles.socialProofContainer}>
-        <p className={styles.socialTitle}>Industries We Transform</p>
+        <p className={styles.socialTitle}>Works With the Tools You Already Use</p>
         <Marquee autoFill={true}>
           <div className={styles.socialIcons}>
             <a href="#" aria-label="Jobber"><span className={styles.jobberLogo} role="img" aria-label="Jobber"></span></a>
@@ -51,6 +52,9 @@ const TrustClient: React.FC<TrustClientProps> = ({ headline, subtext }) => {
             <a href="#" aria-label="Google Calendar"><SiGooglecalendar /></a>
             <a href="#" aria-label="Cal.com"><SiCaldotcom /></a>
             <a href="#" aria-label="HubSpot"><SiHubspot /></a>
+            <a href="#" aria-label="WhatsApp"><SiWhatsapp /></a>
+            <a href="#" aria-label="Gmail"><SiGmail /></a>
+            <a href="#" aria-label="Outlook"><PiMicrosoftOutlookLogoFill /></a>
           </div>
         </Marquee>
       </div>

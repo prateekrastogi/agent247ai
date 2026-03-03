@@ -7,7 +7,7 @@ const Pricing = () => {
     <section id="pricing" className={styles.pricingSection}>
       <div className={styles.pricingHeader}>
         <h2 className={styles.headline}>Plans That Just Make Sense</h2>
-        <p className={styles.subtext}>Select a plan that fits you: No hidden fees, cancel anytime</p>
+        <p className={styles.subtext}>Select a plan that fits you; No hidden fees, cancel anytime.</p>
       </div>
       <div className={styles.pricingGrid}>
         <div className={styles.pricingCard}>
@@ -48,7 +48,7 @@ const Pricing = () => {
           <button className={`${styles.btn} ${styles.btnAccent}`}>Go Pro</button>
         </div>
       </div>
-      
+
     </section>
   );
 };

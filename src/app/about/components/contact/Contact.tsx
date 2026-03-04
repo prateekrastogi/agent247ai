@@ -17,8 +17,7 @@ const Contact: React.FC = () => {
         <div className={styles.leftColumn}>
           <h2 className={styles.headline}>Get in Touch</h2>
           <p className={styles.subcopy}>
-            We&apos;d love to hear from you! Whether you have a question about our services,
-            need support, or just want to say hello, our team is ready to help
+            Have a question about our plans, want to see the AI agent in action, or ready to get started? Our team is here to help — reach out and we'll get back to you within one business day.
           </p>
           <div className={styles.secondaryInfo}>
             <p><FiMapPin /> 8 The Green, Suite A, Dover, Delaware 19901, United States</p>

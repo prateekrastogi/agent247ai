@@ -1,12 +1,56 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import styles from './hero.module.css';
 import VideoAnimation from './VideoAnimation';
 import AnimatedHeadline from './AnimatedHeadline'; // Import the new component
 
 const Hero = () => {
+  const audioRef = useRef<HTMLAudioElement | null>(null);
   const [isPlaying, setIsPlaying] = useState(false);
+
+  useEffect(() => {
+    const audio = audioRef.current;
+    if (!audio) {
+      return;
+    }
+
+    const handlePlay = () => setIsPlaying(true);
+    const handlePause = () => setIsPlaying(false);
+    const handleEnded = () => setIsPlaying(false);
+
+    audio.addEventListener('play', handlePlay);
+    audio.addEventListener('pause', handlePause);
+    audio.addEventListener('ended', handleEnded);
+
+    return () => {
+      audio.removeEventListener('play', handlePlay);
+      audio.removeEventListener('pause', handlePause);
+      audio.removeEventListener('ended', handleEnded);
+    };
+  }, []);
+
+  const handlePlayPauseClick = async () => {
+    const audio = audioRef.current;
+    if (!audio) {
+      return;
+    }
+
+    if (audio.paused) {
+      if (audio.ended) {
+        audio.currentTime = 0;
+      }
+
+      try {
+        await audio.play();
+      } catch {
+        setIsPlaying(false);
+      }
+      return;
+    }
+
+    audio.pause();
+  };
 
   return (
     <section className={styles.heroContainer}>
@@ -24,7 +68,7 @@ const Hero = () => {
           className={styles.playButton}
           aria-label={isPlaying ? 'Pause demo' : 'Play demo'}
           aria-pressed={isPlaying}
-          onClick={() => setIsPlaying((prev) => !prev)}
+          onClick={handlePlayPauseClick}
         >
           <svg
             className={styles.playIcon}
@@ -42,6 +86,7 @@ const Hero = () => {
             )}
           </svg>
         </button>
+        <audio ref={audioRef} src="/agent247ai.mp3" preload="metadata" />
       </div>
     </section>
   );

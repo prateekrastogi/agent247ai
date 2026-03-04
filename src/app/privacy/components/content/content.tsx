@@ -11,7 +11,7 @@ const Content = () => {
           <div className={styles.text}>
             <h2 className={styles.titleColor}>1. Introduction</h2>
             <p>
-             At sharefollowlike.com, we respect your privacy. This Privacy Policy explains what information we collect, how we use it, and your rights regarding your personal data.
+              At agent247ai.com, we respect your privacy. This Privacy Policy explains what information we collect, how we use it, and your rights regarding your personal data.
             </p>
 
             <h2 className={styles.titleColor}>2. Information We Collect</h2>
@@ -39,7 +39,7 @@ const Content = () => {
             <h2 className={styles.titleColor}>4. Sharing of Data</h2>
             <p>
               We may share your information only with:
-              </p>
+            </p>
             <ul>
               <li><b>Trusted service providers</b> (e.g., payment processors, hosting partners).</li>
               <li><b>Legal authorities</b> when required by law.</li>
@@ -66,16 +66,16 @@ const Content = () => {
               We use industry-standard measures to protect your data. However, no system is 100% secure, and we cannot guarantee absolute security.
             </p>
 
-             <h2 className={styles.titleColor}>8. Contact Us</h2>
+            <h2 className={styles.titleColor}>8. Contact Us</h2>
             <p>
-              Questions about privacy? Talk to us: 
-              </p> 
-              <p>     
-              <a href="mailto:support@sharefollowlike.com" className={styles.linkStyle}><RiMailLine style={{verticalAlign: 'middle' }} /> support@sharefollowlike.com</a>
-          </p>
-          <p>
-            <a href="https://sharefollowlike.com/about#contact" className={styles.linkStyle}><BsGlobe style={{ verticalAlign: 'middle' }} /> sharefollowlike.com</a>
-          </p>
+              Questions about privacy? Talk to us:
+            </p>
+            <p>
+              <a href="mailto:support@agent247ai.com" className={styles.linkStyle}><RiMailLine style={{ verticalAlign: 'middle' }} /> support@agent247ai.com</a>
+            </p>
+            <p>
+              <a href="https://www.agent247ai.com/about#contact" className={styles.linkStyle}><BsGlobe style={{ verticalAlign: 'middle' }} /> agent247ai.com</a>
+            </p>
           </div>
         </div>
       </div>

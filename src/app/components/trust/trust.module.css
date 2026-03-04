@@ -86,7 +86,7 @@
 }
 
 @media (max-width: 767px) {
-  .subtext {
+  .trustSection .subtext {
     font-size: clamp(0.9375rem, 4vw, 1rem);
     /* Mobile */
     margin-bottom: 2rem;

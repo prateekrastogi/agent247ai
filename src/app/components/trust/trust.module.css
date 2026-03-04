@@ -66,7 +66,7 @@
 }
 
 .subtextBounce {
-  animation: trustSubtextBounce 1.2s ease-in-out 1;
+  animation: trustSubtextBounce 2s ease-in-out 1;
 }
 
 @media (prefers-color-scheme: light) {
@@ -95,6 +95,7 @@
 }
 
 @keyframes trustSubtextBounce {
+
   0%,
   20%,
   50%,
@@ -102,9 +103,11 @@
   100% {
     transform: translateY(0);
   }
+
   40% {
     transform: translateY(-8px);
   }
+
   60% {
     transform: translateY(-4px);
   }

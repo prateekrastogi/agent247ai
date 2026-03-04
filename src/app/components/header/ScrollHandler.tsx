@@ -26,7 +26,7 @@ const ScrollHandler: React.FC<ScrollHandlerProps> = ({ onTryDemoClick }) => {
   return (
     <>
       <div className={`${styles.brandName} ${scrolled ? styles.hidden : ''}`}>Agent24/7AI</div>
-      <button className={styles.bookDemoButton} onClick={onTryDemoClick}>Try Demo</button>
+      <button className={styles.bookDemoButton} onClick={onTryDemoClick}>Try Live Demo</button>
     </>
   );
 };

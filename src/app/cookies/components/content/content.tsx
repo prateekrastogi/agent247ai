@@ -11,7 +11,7 @@ const Content = () => {
           <div className={styles.text}>
             <h2 className={styles.titleColor}>1. What Are Cookies?</h2>
             <p>
-             Cookies are small files stored on your device that help us provide a better experience, like remembering your preferences or improving site performance.
+              Cookies are small files stored on your device that help us provide a better experience, like remembering your preferences or improving site performance.
             </p>
             <h2 className={styles.titleColor}>2. Types of Cookies We Use</h2>
             <ul>
@@ -20,7 +20,7 @@ const Content = () => {
               <li><b>Preference cookies:</b> Remember your settings.</li>
               <li><b>Marketing cookies:</b> Used to show relevant offers.</li>
             </ul>
-          
+
 
             <h2 className={styles.titleColor}>3. How to Manage Cookies</h2>
             <p>
@@ -32,16 +32,16 @@ const Content = () => {
               We may update this policy to reflect new laws, technology, or services. Changes will be posted here.
             </p>
 
-             <h2 className={styles.titleColor}>5. Contact</h2>
+            <h2 className={styles.titleColor}>5. Contact</h2>
             <p>
-               For cookie-related questions, reach out at:
-              </p> 
-              <p>     
-              <a href="mailto:support@sharefollowlike.com" className={styles.linkStyle}><RiMailLine style={{verticalAlign: 'middle' }} /> support@sharefollowlike.com</a>
-          </p>
-          <p>
-            <a href="https://sharefollowlike.com/about#contact" className={styles.linkStyle}><BsGlobe style={{ verticalAlign: 'middle' }} /> sharefollowlike.com</a>
-          </p>
+              For cookie-related questions, reach out at:
+            </p>
+            <p>
+              <a href="mailto:support@agent247ai.com" className={styles.linkStyle}><RiMailLine style={{ verticalAlign: 'middle' }} /> support@agent247ai.com</a>
+            </p>
+            <p>
+              <a href="https://www.agent247ai.com/about#contact" className={styles.linkStyle}><BsGlobe style={{ verticalAlign: 'middle' }} /> agent247ai.com</a>
+            </p>
           </div>
         </div>
       </div>

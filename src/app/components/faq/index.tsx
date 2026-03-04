@@ -42,7 +42,7 @@ const FAQ = () => {
       <div className={styles.container}>
         <div className={styles.leftColumn}>
           <h2 className={styles.headline}>FAQ</h2>
-          <p className={styles.subtext}>Got Questions? Just Call on Try Live Demo</p>
+          <p className={styles.subtext}>Got Questions? Try Live Demo</p>
         </div>
         <FAQClient faqData={faqData} />
       </div>

@@ -6,9 +6,9 @@ const Team: React.FC = () => {
   return (
     <section className={styles.teamSection}>
       <div className={styles.teamContent}>
-        <h2 className={styles.title}>Our Team, Our Craft</h2>
+        <h2 className={styles.title}>Our Team, Our Approach</h2>
         <p className={styles.subcopy}>
-          We’re a collective of engineers, designers, and dreamers building AI to scale social media, that feels effortless, powerful, and human
+          We’re a collective of engineers and builders creating AI agents designed for real-world service businesses—technology that works quietly in the background, answering every customer and capturing every opportunity.
         </p>
         <div className={styles.officeImageContainer}>
           <Image

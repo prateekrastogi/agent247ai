@@ -10,17 +10,17 @@ const Values = () => {
     {
       icon: FaRegGem,
       title: 'Authenticity',
-      copy: 'Geniune by design',
+      copy: 'Geniune by design.',
     },
     {
       icon: LiaBrainSolid,
       title: 'Intelligence',
-      copy: 'Smarter by nature',
+      copy: 'Smarter by nature.',
     },
     {
       icon: HiOutlineHandRaised,
       title: 'Simplicity',
-      copy: 'Elegance in ease',
+      copy: 'Elegant by craft.',
     },
   ];
 

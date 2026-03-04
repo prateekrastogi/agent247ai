@@ -4,10 +4,10 @@ import { useState, useEffect } from 'react';
 import styles from './header.module.css';
 
 interface ScrollHandlerProps {
-  onBookDemoClick: () => void;
+  onTryDemoClick: () => void;
 }
 
-const ScrollHandler: React.FC<ScrollHandlerProps> = ({ onBookDemoClick }) => {
+const ScrollHandler: React.FC<ScrollHandlerProps> = ({ onTryDemoClick }) => {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -26,7 +26,7 @@ const ScrollHandler: React.FC<ScrollHandlerProps> = ({ onBookDemoClick }) => {
   return (
     <>
       <div className={`${styles.brandName} ${scrolled ? styles.hidden : ''}`}>Agent24/7AI</div>
-      <button className={styles.bookDemoButton} onClick={onBookDemoClick}>Book a Demo</button>
+      <button className={styles.bookDemoButton} onClick={onTryDemoClick}>Try Demo</button>
     </>
   );
 };

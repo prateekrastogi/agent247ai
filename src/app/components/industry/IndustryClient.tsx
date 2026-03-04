@@ -28,7 +28,7 @@ const IndustryClient = () => {
     }, []);
 
     return (
-        <section className={styles.industrySection}>
+        <section id="industry" className={styles.industrySection}>
             <div className={styles.industryContent} ref={sectionRef}>
                 <h2 className={styles.title}>Built for Real HVAC Scenarios</h2>
                 <p className={styles.subtitle}>From emergency breakdowns to new system installs, our agents handle the full customer lifecycle.</p>
@@ -67,4 +67,3 @@ const IndustryClient = () => {
 };
 
 export default IndustryClient;
-

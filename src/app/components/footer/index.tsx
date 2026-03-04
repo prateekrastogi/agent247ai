@@ -31,7 +31,7 @@ const Footer = () => {
           <nav>
             <ul className={styles.navLinks}>
               <li className={styles.navLink}><Link href="/about">ABOUT</Link></li>
-              <li className={styles.navLink}><Link href={isHomePage ? '#benefits' : '/#benefits'}>BENEFITS</Link></li>
+              <li className={styles.navLink}><Link href={isHomePage ? '#industry' : '/#industry'}>SOLUTION</Link></li>
               <li className={styles.navLink}><Link href={isHomePage ? '#pricing' : '/#pricing'}>PLANS</Link></li>
               <li className={styles.navLink}><Link href="/about#contact">CONTACT</Link></li>
             </ul>
@@ -40,13 +40,13 @@ const Footer = () => {
 
         <div className={styles.rightColumn}>
           <p className={styles.rightTagline}>
-            Smarter Marketing. AI Engineered.
+            Always On. Always Booking.
           </p>
         </div>
       </div>
 
       <div className={styles.legalBar}>
-        <p>© {new Date().getFullYear()} Agent24/7AI. Crafted with precision. All rights reserved.</p>
+        <p>© {new Date().getFullYear()} Agent24/7AI. All rights reserved.</p>
       </div>
 
       <div className={styles.legalLinksBar}>

@@ -99,6 +99,39 @@
   white-space: nowrap; /* Prevent text wrapping */
 }
 
+.playButton {
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  border: none;
+  background-color: var(--grey-0);
+  color: var(--grey-10);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.playButton:hover {
+  transform: translateY(-1px);
+  background-color: var(--grey-1);
+}
+
+.playButton:focus-visible {
+  outline: 2px solid var(--grey-4);
+  outline-offset: 3px;
+}
+
+.playIcon {
+  width: 54px;
+  height: 54px;
+  stroke: currentColor;
+  stroke-width: 2.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
 .primaryCta {
   background-color: var(--grey-0);
   color: var(--grey-10);
@@ -161,6 +194,17 @@
     font-size: 15px;
     padding: 0 1.25rem;
   }
+
+  .playButton {
+    width: 56px;
+    height: 56px;
+  }
+
+  .playIcon {
+    width: 36px;
+    height: 36px;
+    stroke-width: 2.4;
+  }
 }
 
 .secondaryCta:hover {
@@ -188,6 +232,17 @@
   .secondaryCta:hover {
     background-color: var(--grey-3);
     border-color: var(--grey-5);
+  }
+
+  .playButton {
+    background-color: var(--grey-10);
+    color: var(--grey-1);
+    border: 1px solid var(--grey-10);
+  }
+
+  .playButton:hover {
+    background-color: var(--grey-8);
+    border-color: var(--grey-8);
   }
 }
 
@@ -219,6 +274,16 @@
   }
   .ctaContainer {
     flex-direction: row; /* Stack horizontally if space */
+  }
+
+  .playButton {
+    width: 66px;
+    height: 66px;
+  }
+
+  .playIcon {
+    width: 45px;
+    height: 45px;
   }
 }
 
@@ -256,8 +321,4 @@
 
 .fadeOut {
   animation: fadeOut 0.5s ease-in forwards;
-}
-
-.faqLink {
-  text-decoration: none;
 }

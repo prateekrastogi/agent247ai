@@ -1,8 +1,13 @@
+'use client';
+
+import { useState } from 'react';
 import styles from './hero.module.css';
 import VideoAnimation from './VideoAnimation';
 import AnimatedHeadline from './AnimatedHeadline'; // Import the new component
 
 const Hero = () => {
+  const [isPlaying, setIsPlaying] = useState(false);
+
   return (
     <section className={styles.heroContainer}>
       <AnimatedHeadline /> {/* Use the new component here */}
@@ -14,10 +19,29 @@ const Hero = () => {
         containerClassName={styles.animationContainer}
       />
       <div className={styles.ctaContainer}>
-
-        <a href="#faq" className={styles.faqLink}>
-          <button className={`${styles.ctaButton} ${styles.secondaryCta}`}>FAQ</button>
-        </a>
+        <button
+          type="button"
+          className={styles.playButton}
+          aria-label={isPlaying ? 'Pause demo' : 'Play demo'}
+          aria-pressed={isPlaying}
+          onClick={() => setIsPlaying((prev) => !prev)}
+        >
+          <svg
+            className={styles.playIcon}
+            viewBox="0 0 24 24"
+            fill="none"
+            aria-hidden="true"
+          >
+            {isPlaying ? (
+              <>
+                <path d="M9 6 V18" />
+                <path d="M15 6 V18" />
+              </>
+            ) : (
+              <path d="M8 5 L19 12 L8 19 Z" />
+            )}
+          </svg>
+        </button>
       </div>
     </section>
   );

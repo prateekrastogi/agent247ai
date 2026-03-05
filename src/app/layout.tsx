@@ -48,6 +48,59 @@ export default function RootLayout({
           async
           type="text/javascript"
         />
+        <Script id="elevenlabs-hide-branding-text" strategy="afterInteractive">
+          {`
+            (function () {
+              var processed = new WeakSet();
+
+              function hideBrandingText(host) {
+                if (!host || !host.shadowRoot || processed.has(host)) return;
+                var root = host.shadowRoot;
+                var apply = function () {
+                  var paragraphs = root.querySelectorAll("p");
+                  paragraphs.forEach(function (p) {
+                    var text = (p.textContent || "").toLowerCase();
+                    if (text.includes("powered by elevenlabs")) {
+                      p.style.color = "transparent";
+                      p.style.userSelect = "none";
+                      p.querySelectorAll("span, a").forEach(function (node) {
+                        node.style.display = "none";
+                      });
+                    }
+                  });
+                };
+                apply();
+                var observer = new MutationObserver(apply);
+                observer.observe(root, { childList: true, subtree: true });
+                processed.add(host);
+              }
+
+              function initHost(host) {
+                var attempts = 0;
+                var timer = setInterval(function () {
+                  attempts += 1;
+                  if (host.shadowRoot) {
+                    clearInterval(timer);
+                    hideBrandingText(host);
+                  } else if (attempts > 100) {
+                    clearInterval(timer);
+                  }
+                }, 100);
+              }
+
+              function init() {
+                document.querySelectorAll("elevenlabs-convai").forEach(initHost);
+
+                var bodyObserver = new MutationObserver(function () {
+                  document.querySelectorAll("elevenlabs-convai").forEach(initHost);
+                });
+                bodyObserver.observe(document.body, { childList: true, subtree: true });
+              }
+
+              customElements.whenDefined("elevenlabs-convai").then(init);
+            })();
+          `}
+        </Script>
       </body>
     </html>
   );

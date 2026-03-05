@@ -8,6 +8,7 @@ declare module "react" {
         HTMLElement
       > & {
         "agent-id": string;
+        "override-config"?: string;
       };
     }
   }

@@ -56,7 +56,7 @@ const Hero = () => {
     <section className={styles.heroContainer}>
       <AnimatedHeadline /> {/* Use the new component here */}
       <p className={styles.subtext}>
-        The average HVAC business misses upto 30% of inbound calls. That's booked jobs walking straight to your competitors. Agent24/7AI answers every call and text instantly, books jobs automatically, and grows your revenue swiftly — without adding a single person to your payroll.
+        The average HVAC business misses upto 30% of inbound calls. That&apos;s booked jobs walking straight to your competitors. Agent24/7AI answers every call and text instantly, books jobs automatically, and grows your revenue swiftly — without adding a single person to your payroll.
       </p>
       <VideoAnimation
         videoClassName={styles.heroVideo}

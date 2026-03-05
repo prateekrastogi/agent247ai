@@ -8,11 +8,15 @@ interface VideoAnimationProps {
 }
 
 const VideoAnimation: React.FC<VideoAnimationProps> = ({ videoClassName, containerClassName }) => {
-  const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(() => {
+    if (typeof window === 'undefined') {
+      return false;
+    }
+    return window.matchMedia('(prefers-color-scheme: dark)').matches;
+  });
 
   useEffect(() => {
     const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-    setIsDarkMode(mediaQuery.matches);
 
     const handleChange = (e: MediaQueryListEvent) => {
       setIsDarkMode(e.matches);

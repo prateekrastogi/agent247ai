@@ -11,7 +11,7 @@ const Content = () => {
           <div className={styles.text}>
             <h2 className={styles.titleColor}>1. Introduction</h2>
             <p>
-              Welcome to agent247ai.com. These Terms of Service ("Terms") govern your access to and use of our AI-powered call and text answering services, scheduling automation, and website (the "Services"). Our Services are designed specifically for HVAC and home service businesses seeking to automate inbound communication and lead management. By using our Services, you agree to these Terms. If you do not agree, please do not use our Services.
+              Welcome to agent247ai.com. These Terms of Service (&quot;Terms&quot;) govern your access to and use of our AI-powered call and text answering services, scheduling automation, and website (the &quot;Services&quot;). Our Services are designed specifically for HVAC and home service businesses seeking to automate inbound communication and lead management. By using our Services, you agree to these Terms. If you do not agree, please do not use our Services.
             </p>
 
             <h2 className={styles.titleColor}>2. Eligibility</h2>

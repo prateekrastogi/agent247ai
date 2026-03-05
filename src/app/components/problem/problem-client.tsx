@@ -1,9 +1,16 @@
 'use client';
 import styles from './problem.module.css';
+import type { IconType } from 'react-icons';
 import { FiPhoneMissed, FiClock, FiDollarSign, FiTrendingUp } from 'react-icons/fi';
 import { useIntersectionObserver } from '../../hooks/useIntersectionObserver';
 
-const problems = [
+type Problem = {
+    Icon: IconType;
+    title: string;
+    description: string;
+};
+
+const problems: Problem[] = [
     {
         Icon: FiPhoneMissed,
         title: 'Calls Go Unanswered',
@@ -26,7 +33,7 @@ const problems = [
     },
 ];
 
-const ProblemItem = ({ problem, index }: { problem: any; index: number }) => {
+const ProblemItem = ({ problem, index }: { problem: Problem; index: number }) => {
     const [ref, isIntersecting] = useIntersectionObserver({ threshold: 0.1 });
     const slideDirection = index % 2 === 0 ? styles.slideInLeft : styles.slideInRight;
 
@@ -50,7 +57,7 @@ const ProblemClient = () => {
             <div className={styles.container}>
                 <h2 className={styles.headline}>The Phone Is Ringing, Revenue Is Leaving</h2>
                 <p className={styles.subtext}>
-                    Small businesses can't afford to be unavailable — but they can't afford to hire someone to always be available either.
+                    Small businesses can&apos;t afford to be unavailable — but they can&apos;t afford to hire someone to always be available either.
                 </p>
                 <div className={styles.grid}>
                     {problems.map((problem, index) => (

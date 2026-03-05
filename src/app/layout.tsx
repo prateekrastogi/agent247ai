@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans, Inter } from "next/font/google"; // Import fonts
+import Script from "next/script";
 import "./globals.css";
 import Header from "./components/header/Header";
 import Footer from "./components/footer";
@@ -35,10 +36,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${plusJakartaSans.variable} ${inter.variable}`}><body>
-      <Header />
-      <main>{children}</main>
-      <Footer />
-    </body></html>
+    <html lang="en" className={`${plusJakartaSans.variable} ${inter.variable}`}>
+      <body>
+        <Header />
+        <main>{children}</main>
+        <Footer />
+        <elevenlabs-convai agent-id="agent_3001kjysjf56fv5a38pg6pwstne9" />
+        <Script
+          src="https://unpkg.com/@elevenlabs/convai-widget-embed"
+          strategy="afterInteractive"
+          async
+          type="text/javascript"
+        />
+      </body>
+    </html>
   );
 }

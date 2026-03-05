@@ -19,7 +19,7 @@ export async function sendEmail(prevState: FormState, formData: FormData): Promi
     }
 
     try {
-        const { data, error } = await resend.emails.send({
+        const { error } = await resend.emails.send({
             from: 'Contact Form <contact@agent247ai.com>',
             to: 'support@agent247ai.com',
             subject: `New Contact Form Submission from ${name}`,

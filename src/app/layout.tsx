@@ -21,7 +21,7 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: "HVAC AI Agent – 24/7 Call & Text",
-  description: "Smarter Marketing. AI Engineered.",
+  description: "Always On. Always Booking.",
   icons: {
     icon: [
       { url: "/logo_black.png", media: "(prefers-color-scheme: light)" },

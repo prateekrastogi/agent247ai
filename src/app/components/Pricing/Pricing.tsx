@@ -31,7 +31,7 @@ const Pricing = () => {
             <li>500 AI Voice Minutes/month</li>
             <li>SMS + WhatsApp handling</li>
             <li>Advanced lead qualification</li>
-            <li>FSM +Email Integration</li>
+            <li>FSM + Email Integration</li>
             <li>Missed Call Recovery</li>
             <li>Appointment Booking</li>
             <li>2 Phone Number</li>

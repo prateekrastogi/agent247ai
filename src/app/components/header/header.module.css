@@ -138,7 +138,7 @@
 }
 
 .bookDemoButton {
-  padding: 0.5em 1.2em;
+  padding: 0.42em 0.95em;
   border: none;
   border-radius: 9999px; /* Pill shape */
   cursor: pointer;
@@ -146,10 +146,12 @@
   transition: background-color 0.3s ease, color 0.3s ease;
   flex-shrink: 0; /* Prevent shrinking */
   box-sizing: border-box; /* Ensure padding is included in width */
-  font-size: 0.9rem; /* slightly smaller than brand name */
+  font-size: 0.84rem;
+  line-height: 1.1;
   display: flex; /* Use flexbox for alignment */
   align-items: center; /* Center content vertically */
   justify-content: center; /* Center content horizontally */
+  min-height: 2rem;
 }
 
 /* Light mode styles */
@@ -177,26 +179,33 @@
 /* Responsive font size for button text */
 @media (max-width: 480px) {
   .bookDemoButton {
-    font-size: 0.75rem; /* ~12px */
-    padding: 0.5em 1em;
+    font-size: 0.7rem;
+    padding: 0.4em 0.8em;
+    min-height: 1.8rem;
   }
 }
 
 @media (min-width: 768px) and (max-width: 1023px) {
   .bookDemoButton {
-    font-size: 0.875rem; /* ~14px */
+    font-size: 0.78rem;
+    padding: 0.42em 0.88em;
+    min-height: 1.95rem;
   }
 }
 
 @media (min-width: 1024px) {
   .bookDemoButton {
-    font-size: 1rem; /* ~16px */
+    font-size: 0.86rem;
+    padding: 0.44em 0.96em;
+    min-height: 2.05rem;
   }
 }
 
 @media (min-width: 1440px) {
   .bookDemoButton {
-    font-size: 1.125rem; /* ~18px */
+    font-size: 0.94rem;
+    padding: 0.46em 1.05em;
+    min-height: 2.15rem;
   }
 }
 

@@ -51,37 +51,34 @@ export default function RootLayout({
         <Script id="elevenlabs-hide-branding-text" strategy="afterInteractive">
           {`
             (function () {
-              var processed = new WeakSet();
-
-              function hideBrandingText(host) {
-                if (!host || !host.shadowRoot || processed.has(host)) return;
+              function injectBrandingStyle(host) {
+                if (!host || !host.shadowRoot) return false;
                 var root = host.shadowRoot;
-                var apply = function () {
-                  var paragraphs = root.querySelectorAll("p");
-                  paragraphs.forEach(function (p) {
-                    var text = (p.textContent || "").toLowerCase();
-                    if (text.includes("powered by elevenlabs")) {
-                      p.style.color = "transparent";
-                      p.style.userSelect = "none";
-                      p.querySelectorAll("span, a").forEach(function (node) {
-                        node.style.display = "none";
-                      });
-                    }
-                  });
-                };
-                apply();
-                var observer = new MutationObserver(apply);
-                observer.observe(root, { childList: true, subtree: true });
-                processed.add(host);
+                if (root.getElementById("agent247ai-hide-branding")) return true;
+
+                var style = document.createElement("style");
+                style.id = "agent247ai-hide-branding";
+                style.textContent = [
+                  "p.whitespace-nowrap {",
+                  "  color: transparent !important;",
+                  "  font-size: 0 !important;",
+                  "}",
+                  "p.whitespace-nowrap span,",
+                  "p.whitespace-nowrap a {",
+                  "  display: none !important;",
+                  "}",
+                ].join("\\n");
+
+                root.appendChild(style);
+                return true;
               }
 
               function initHost(host) {
                 var attempts = 0;
                 var timer = setInterval(function () {
                   attempts += 1;
-                  if (host.shadowRoot) {
+                  if (injectBrandingStyle(host)) {
                     clearInterval(timer);
-                    hideBrandingText(host);
                   } else if (attempts > 100) {
                     clearInterval(timer);
                   }

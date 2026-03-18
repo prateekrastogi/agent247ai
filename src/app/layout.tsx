@@ -35,12 +35,14 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const currentYear = new Date().getFullYear();
+
   return (
     <html lang="en" className={`${plusJakartaSans.variable} ${inter.variable}`}>
       <body>
         <Header />
         <main>{children}</main>
-        <Footer />
+        <Footer currentYear={currentYear} />
         <elevenlabs-convai agent-id="agent_3001kjysjf56fv5a38pg6pwstne9" />
         <Script
           src="https://unpkg.com/@elevenlabs/convai-widget-embed"

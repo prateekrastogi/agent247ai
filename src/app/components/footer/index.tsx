@@ -4,7 +4,11 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import styles from './footer.module.css';
 
-const Footer = () => {
+type FooterProps = {
+  currentYear: number;
+};
+
+const Footer = ({ currentYear }: FooterProps) => {
   const pathname = usePathname();
 
   const isHomePage = pathname === '/';
@@ -46,7 +50,7 @@ const Footer = () => {
       </div>
 
       <div className={styles.legalBar}>
-        <p>© {new Date().getFullYear()} Agent24/7AI. All rights reserved.</p>
+        <p>© {currentYear} Agent24/7AI. All rights reserved.</p>
       </div>
 
       <div className={styles.legalLinksBar}>

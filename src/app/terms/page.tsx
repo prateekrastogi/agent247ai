@@ -4,10 +4,10 @@ import Content from './components/content/content';
 
 const TermsPage = () => {
   return (
-    <main>
+    <>
       <Hero />
       <Content />
-    </main>
+    </>
   );
 };
 

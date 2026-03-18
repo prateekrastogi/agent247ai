@@ -4,10 +4,10 @@ import Content from './components/content/content';
 
 const CookiesPage = () => {
   return (
-    <main>
+    <>
       <Hero />
       <Content />
-    </main>
+    </>
   );
 };
 

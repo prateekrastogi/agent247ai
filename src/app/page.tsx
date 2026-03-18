@@ -8,7 +8,7 @@ import FAQ from './components/faq';
 
 export default function Page() {
   return (
-    <main>
+    <>
       <Hero />
       <Problem />
       <Solution />
@@ -16,6 +16,6 @@ export default function Page() {
       <Trust />
       <Pricing />
       <FAQ />
-    </main>
+    </>
   );
 }

@@ -7,13 +7,13 @@ import ContactSection from './components/contact/Contact';
 
 const AboutPage = () => {
   return (
-    <main>
+    <>
       <Hero />
       <Story />
       <Values />
       <Team />
       <ContactSection />
-    </main>
+    </>
   );
 };
 

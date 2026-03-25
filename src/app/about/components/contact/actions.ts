@@ -23,10 +23,22 @@ export async function sendEmail(prevState: FormState, formData: FormData): Promi
         return { error: 'Please complete the reCAPTCHA' };
     }
 
+    if (!process.env.RECAPTCHA_SECRET_KEY) {
+        console.error('RECAPTCHA_SECRET_KEY is missing in environment variables');
+        return { error: 'Server configuration error. Please try again later.' };
+    }
+
     // Verify reCAPTCHA
     try {
-        const verifyResponse = await fetch(`https://www.google.com/recaptcha/api/siteverify?secret=${process.env.RECAPTCHA_SECRET_KEY}&response=${recaptchaToken}`, {
+        const verifyResponse = await fetch('https://www.google.com/recaptcha/api/siteverify', {
             method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: new URLSearchParams({
+                secret: process.env.RECAPTCHA_SECRET_KEY,
+                response: recaptchaToken,
+            }),
         });
         const verifyData = await verifyResponse.json();
         

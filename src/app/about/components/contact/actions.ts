@@ -13,9 +13,29 @@ export async function sendEmail(prevState: FormState, formData: FormData): Promi
     const name = formData.get('name') as string;
     const email = formData.get('email') as string;
     const message = formData.get('message') as string;
+    const recaptchaToken = formData.get('g-recaptcha-response') as string;
 
     if (!name || !email || !message) {
         return { error: 'All fields are required' };
+    }
+
+    if (!recaptchaToken) {
+        return { error: 'Please complete the reCAPTCHA' };
+    }
+
+    // Verify reCAPTCHA
+    try {
+        const verifyResponse = await fetch(`https://www.google.com/recaptcha/api/siteverify?secret=${process.env.RECAPTCHA_SECRET_KEY}&response=${recaptchaToken}`, {
+            method: 'POST',
+        });
+        const verifyData = await verifyResponse.json();
+
+        if (!verifyData.success || verifyData.score < 0.5) {
+            return { error: 'reCAPTCHA verification failed. Please try again or contact us directly.' };
+        }
+    } catch (error) {
+        console.error('reCAPTCHA verification error:', error);
+        return { error: 'Failed to verify reCAPTCHA. Please try again later.' };
     }
 
     try {

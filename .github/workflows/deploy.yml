@@ -13,14 +13,17 @@ jobs:
       VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
       NEXT_PUBLIC_RECAPTCHA_SITE_KEY: ${{ secrets.NEXT_PUBLIC_RECAPTCHA_SITE_KEY }}
       RECAPTCHA_SECRET_KEY: ${{ secrets.RECAPTCHA_SECRET_KEY }}
+      RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
     steps:
       - uses: actions/checkout@v4
       - name: Install Vercel CLI
         run: npm install --global vercel@latest
-      - name: Sync reCAPTCHA Secret to Vercel
+      - name: Sync Secrets to Vercel
         run: |
-          # Use --value and --yes for non-interactive mode
+          # Sync reCAPTCHA Secret
           vercel env add RECAPTCHA_SECRET_KEY production --value="${{ secrets.RECAPTCHA_SECRET_KEY }}" --token=${{ secrets.VERCEL_TOKEN }} --yes || (vercel env rm RECAPTCHA_SECRET_KEY production --yes --token=${{ secrets.VERCEL_TOKEN }} && vercel env add RECAPTCHA_SECRET_KEY production --value="${{ secrets.RECAPTCHA_SECRET_KEY }}" --token=${{ secrets.VERCEL_TOKEN }} --yes)
+          # Sync Resend API Key
+          vercel env add RESEND_API_KEY production --value="${{ secrets.RESEND_API_KEY }}" --token=${{ secrets.VERCEL_TOKEN }} --yes || (vercel env rm RESEND_API_KEY production --yes --token=${{ secrets.VERCEL_TOKEN }} && vercel env add RESEND_API_KEY production --value="${{ secrets.RESEND_API_KEY }}" --token=${{ secrets.VERCEL_TOKEN }} --yes)
       - name: Pull Vercel Environment Information
         run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
       - name: Build Project Artifacts

@@ -29,8 +29,12 @@ export async function sendEmail(prevState: FormState, formData: FormData): Promi
             method: 'POST',
         });
         const verifyData = await verifyResponse.json();
+        
+        // Debug logging for production (check your server logs)
+        console.log('reCAPTCHA verification result:', verifyData);
 
         if (!verifyData.success || verifyData.score < 0.5) {
+            console.error('reCAPTCHA failed. Success:', verifyData.success, 'Score:', verifyData.score, 'Errors:', verifyData['error-codes']);
             return { error: 'reCAPTCHA verification failed. Retry or contact support.' };
         }
     } catch (error) {

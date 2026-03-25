@@ -50,24 +50,26 @@ const ContactForm: React.FC = () => {
           {isPending ? 'Sending...' : 'Send Message'}
         </button>
 
-        {state?.success && (
-          <p className={styles.successMessage}>
-            <FiCheckCircle style={{ verticalAlign: 'middle', marginRight: '8px' }} />
-            {state.success}
-          </p>
-        )}
-        {state?.error && (
-          <p className={styles.errorMessage}>
-            <FiAlertCircle style={{ verticalAlign: 'middle', marginRight: '8px' }} />
-            {state.error}
-          </p>
-        )}
+        <div className={styles.formStatus}>
+          {state?.success && (
+            <p className={styles.successMessage}>
+              <FiCheckCircle style={{ verticalAlign: 'middle', marginRight: '8px' }} />
+              {state.success}
+            </p>
+          )}
+          {state?.error && (
+            <p className={styles.errorMessage}>
+              <FiAlertCircle style={{ verticalAlign: 'middle', marginRight: '8px' }} />
+              {state.error}
+            </p>
+          )}
 
-        <p className={styles.recaptchaAttribution}>
-          This site is protected by reCAPTCHA and the Google{' '}
-          <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Privacy Policy</a> and{' '}
-          <a href="https://policies.google.com/terms" target="_blank" rel="noopener noreferrer">Terms of Service</a> apply.
-        </p>
+          <p className={styles.recaptchaAttribution}>
+            This site is protected by reCAPTCHA and the Google{' '}
+            <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Privacy Policy</a> and{' '}
+            <a href="https://policies.google.com/terms" target="_blank" rel="noopener noreferrer">Terms of Service</a> apply.
+          </p>
+        </div>
       </form>
     </div>
   );

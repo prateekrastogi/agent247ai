@@ -167,6 +167,19 @@
   text-align: center;
 }
 
+.recaptchaAttribution {
+  font-size: 0.75rem;
+  color: var(--grey-5);
+  margin-top: 1.5rem;
+  text-align: center;
+  line-height: 1.4;
+}
+
+.recaptchaAttribution a {
+  color: inherit;
+  text-decoration: underline;
+}
+
 @media (prefers-color-scheme: dark) {
   .successMessage {
     color: var(--grey-6);

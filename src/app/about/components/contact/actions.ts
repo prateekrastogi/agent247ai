@@ -31,7 +31,7 @@ export async function sendEmail(prevState: FormState, formData: FormData): Promi
         const verifyData = await verifyResponse.json();
 
         if (!verifyData.success || verifyData.score < 0.5) {
-            return { error: 'reCAPTCHA verification failed. Please try again or contact us directly.' };
+            return { error: 'reCAPTCHA verification failed. Retry or contact support.' };
         }
     } catch (error) {
         console.error('reCAPTCHA verification error:', error);

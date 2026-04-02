@@ -13,7 +13,7 @@ type PricingCheckoutButtonProps = {
 
 type StatusState =
   | {
-      tone: "success" | "error";
+      tone: "error";
       message: string;
     }
   | null;
@@ -107,11 +107,7 @@ export default function PricingCheckoutButton({
               );
             }
 
-            setStatus({
-              tone: "success",
-              message:
-                "Subscription authorized successfully. Razorpay will now manage the recurring charges for this plan.",
-            });
+            setStatus(null);
           } catch (error) {
             setStatus({
               tone: "error",
@@ -144,14 +140,10 @@ export default function PricingCheckoutButton({
   }
 
   const statusClassName =
-    status?.tone === "success"
-      ? styles.statusSuccess
-      : status?.tone === "error"
-        ? styles.statusError
-        : "";
+    status?.tone === "error" ? styles.statusError : "";
 
   return (
-    <div>
+    <div className={styles.checkoutButtonWrapper}>
       <button
         type="button"
         className={buttonClassName}
@@ -160,16 +152,14 @@ export default function PricingCheckoutButton({
       >
         {isLoading ? "Processing..." : buttonLabel}
       </button>
-      <p
-        className={
-          status
-            ? `${styles.pricingStatusMessage} ${statusClassName}`
-            : styles.pricingStatusMessage
-        }
-        aria-live="polite"
-      >
-        {status?.message || ""}
-      </p>
+      {status ? (
+        <p
+          className={`${styles.pricingStatusMessage} ${statusClassName}`}
+          aria-live="polite"
+        >
+          {status.message}
+        </p>
+      ) : null}
     </div>
   );
 }

@@ -120,6 +120,12 @@
     color: var(--grey-0);
 }
 
+.checkoutButtonWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .mostPopular {
   position: relative;
   border-width: 2px;
@@ -151,7 +157,6 @@
 }
 
 .pricingStatusMessage {
-  min-height: 2.75rem;
   margin: 0.75rem auto 0;
   width: min(100%, 320px);
   text-align: center;
@@ -160,19 +165,11 @@
   color: var(--grey-5);
 }
 
-.statusSuccess {
-  color: #0d7a43;
-}
-
 .statusError {
   color: #b42318;
 }
 
 @media (prefers-color-scheme: dark) {
-  .statusSuccess {
-    color: #58d68d;
-  }
-
   .statusError {
     color: #ff8f8f;
   }

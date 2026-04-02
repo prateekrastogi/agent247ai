@@ -74,7 +74,7 @@ export default function PricingCheckoutButton({
         subscription_id: configPayload.subscriptionId,
         name: "Agent247AI",
         description: `${configPayload.description} • ${configPayload.amountLabel}`,
-        image: "https://agent247ai.com/logo_black.png",
+        image: "https://agent247ai.com/razorpay-logo-black.png",
         notes: {
           selected_plan: configPayload.planTitle,
         },

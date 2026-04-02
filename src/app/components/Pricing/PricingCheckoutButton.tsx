@@ -72,7 +72,7 @@ export default function PricingCheckoutButton({
       const razorpay = new window.Razorpay({
         key: configPayload.key,
         subscription_id: configPayload.subscriptionId,
-        name: "Agent247AI",
+        name: "Agent24/7AI",
         description: `${configPayload.description} • ${configPayload.amountLabel}`,
         image: "https://agent247ai.com/razorpay-logo-black.png",
         notes: {

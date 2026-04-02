@@ -8,7 +8,6 @@ type RazorpayPlanConfig = {
   amountLabel: string;
   subscriptionEnvKey: string;
   themeColor: string;
-  backdropColor: string;
 };
 
 const planConfigs: Record<PricingPlanKey, RazorpayPlanConfig> = {
@@ -18,7 +17,6 @@ const planConfigs: Record<PricingPlanKey, RazorpayPlanConfig> = {
     amountLabel: "$300/mo",
     subscriptionEnvKey: "RAZORPAY_SUBSCRIPTION_ID_GO",
     themeColor: "#f05a3f",
-    backdropColor: "rgba(66, 21, 8, 0.72)",
   },
   grow: {
     title: "Grow",
@@ -26,7 +24,6 @@ const planConfigs: Record<PricingPlanKey, RazorpayPlanConfig> = {
     amountLabel: "$500/mo",
     subscriptionEnvKey: "RAZORPAY_SUBSCRIPTION_ID_GROW",
     themeColor: "#1496d1",
-    backdropColor: "rgba(5, 32, 59, 0.78)",
   },
   pro: {
     title: "Pro",
@@ -34,7 +31,6 @@ const planConfigs: Record<PricingPlanKey, RazorpayPlanConfig> = {
     amountLabel: "$1000/mo",
     subscriptionEnvKey: "RAZORPAY_SUBSCRIPTION_ID_PRO",
     themeColor: "#f3a61f",
-    backdropColor: "rgba(68, 39, 2, 0.76)",
   },
 };
 
@@ -62,7 +58,6 @@ export function getCheckoutConfig(plan: PricingPlanKey) {
     description: config.description,
     amountLabel: config.amountLabel,
     themeColor: config.themeColor,
-    backdropColor: config.backdropColor,
   };
 }
 

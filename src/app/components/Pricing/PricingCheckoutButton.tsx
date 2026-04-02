@@ -25,7 +25,6 @@ type CheckoutConfig = {
   description: string;
   amountLabel: string;
   themeColor: string;
-  backdropColor: string;
 };
 
 function getErrorMessage(error: unknown) {
@@ -80,7 +79,6 @@ export default function PricingCheckoutButton({
         },
         theme: {
           color: configPayload.themeColor,
-          backdrop_color: configPayload.backdropColor,
         },
         modal: {
           ondismiss: () => {

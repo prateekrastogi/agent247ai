@@ -32,7 +32,6 @@ type RazorpayCheckoutOptions = {
   };
   theme?: {
     color?: string;
-    backdrop_color?: string;
   };
 };
 

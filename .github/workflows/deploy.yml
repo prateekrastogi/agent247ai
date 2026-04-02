@@ -14,6 +14,12 @@ jobs:
       NEXT_PUBLIC_RECAPTCHA_SITE_KEY: ${{ secrets.NEXT_PUBLIC_RECAPTCHA_SITE_KEY }}
       RECAPTCHA_SECRET_KEY: ${{ secrets.RECAPTCHA_SECRET_KEY }}
       RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+      RAZORPAY_KEY_ID: ${{ secrets.RAZORPAY_KEY_ID }}
+      RAZORPAY_KEY_SECRET: ${{ secrets.RAZORPAY_KEY_SECRET }}
+      RAZORPAY_SUBSCRIPTION_ID_GO: ${{ secrets.RAZORPAY_SUBSCRIPTION_ID_GO }}
+      RAZORPAY_SUBSCRIPTION_ID_GROW: ${{ secrets.RAZORPAY_SUBSCRIPTION_ID_GROW }}
+      RAZORPAY_SUBSCRIPTION_ID_PRO: ${{ secrets.RAZORPAY_SUBSCRIPTION_ID_PRO }}
+      RAZORPAY_WEBHOOK_SECRET: ${{ secrets.RAZORPAY_WEBHOOK_SECRET }}
     steps:
       - uses: actions/checkout@v4
       - name: Install Vercel CLI
@@ -24,6 +30,18 @@ jobs:
           vercel env add RECAPTCHA_SECRET_KEY production --value="${{ secrets.RECAPTCHA_SECRET_KEY }}" --token=${{ secrets.VERCEL_TOKEN }} --yes || (vercel env rm RECAPTCHA_SECRET_KEY production --yes --token=${{ secrets.VERCEL_TOKEN }} && vercel env add RECAPTCHA_SECRET_KEY production --value="${{ secrets.RECAPTCHA_SECRET_KEY }}" --token=${{ secrets.VERCEL_TOKEN }} --yes)
           # Sync Resend API Key
           vercel env add RESEND_API_KEY production --value="${{ secrets.RESEND_API_KEY }}" --token=${{ secrets.VERCEL_TOKEN }} --yes || (vercel env rm RESEND_API_KEY production --yes --token=${{ secrets.VERCEL_TOKEN }} && vercel env add RESEND_API_KEY production --value="${{ secrets.RESEND_API_KEY }}" --token=${{ secrets.VERCEL_TOKEN }} --yes)
+          # Sync Razorpay Key ID
+          vercel env add RAZORPAY_KEY_ID production --value="${{ secrets.RAZORPAY_KEY_ID }}" --token=${{ secrets.VERCEL_TOKEN }} --yes || (vercel env rm RAZORPAY_KEY_ID production --yes --token=${{ secrets.VERCEL_TOKEN }} && vercel env add RAZORPAY_KEY_ID production --value="${{ secrets.RAZORPAY_KEY_ID }}" --token=${{ secrets.VERCEL_TOKEN }} --yes)
+          # Sync Razorpay Key Secret
+          vercel env add RAZORPAY_KEY_SECRET production --value="${{ secrets.RAZORPAY_KEY_SECRET }}" --token=${{ secrets.VERCEL_TOKEN }} --yes || (vercel env rm RAZORPAY_KEY_SECRET production --yes --token=${{ secrets.VERCEL_TOKEN }} && vercel env add RAZORPAY_KEY_SECRET production --value="${{ secrets.RAZORPAY_KEY_SECRET }}" --token=${{ secrets.VERCEL_TOKEN }} --yes)
+          # Sync Razorpay Go Subscription ID
+          vercel env add RAZORPAY_SUBSCRIPTION_ID_GO production --value="${{ secrets.RAZORPAY_SUBSCRIPTION_ID_GO }}" --token=${{ secrets.VERCEL_TOKEN }} --yes || (vercel env rm RAZORPAY_SUBSCRIPTION_ID_GO production --yes --token=${{ secrets.VERCEL_TOKEN }} && vercel env add RAZORPAY_SUBSCRIPTION_ID_GO production --value="${{ secrets.RAZORPAY_SUBSCRIPTION_ID_GO }}" --token=${{ secrets.VERCEL_TOKEN }} --yes)
+          # Sync Razorpay Grow Subscription ID
+          vercel env add RAZORPAY_SUBSCRIPTION_ID_GROW production --value="${{ secrets.RAZORPAY_SUBSCRIPTION_ID_GROW }}" --token=${{ secrets.VERCEL_TOKEN }} --yes || (vercel env rm RAZORPAY_SUBSCRIPTION_ID_GROW production --yes --token=${{ secrets.VERCEL_TOKEN }} && vercel env add RAZORPAY_SUBSCRIPTION_ID_GROW production --value="${{ secrets.RAZORPAY_SUBSCRIPTION_ID_GROW }}" --token=${{ secrets.VERCEL_TOKEN }} --yes)
+          # Sync Razorpay Pro Subscription ID
+          vercel env add RAZORPAY_SUBSCRIPTION_ID_PRO production --value="${{ secrets.RAZORPAY_SUBSCRIPTION_ID_PRO }}" --token=${{ secrets.VERCEL_TOKEN }} --yes || (vercel env rm RAZORPAY_SUBSCRIPTION_ID_PRO production --yes --token=${{ secrets.VERCEL_TOKEN }} && vercel env add RAZORPAY_SUBSCRIPTION_ID_PRO production --value="${{ secrets.RAZORPAY_SUBSCRIPTION_ID_PRO }}" --token=${{ secrets.VERCEL_TOKEN }} --yes)
+          # Sync Razorpay Webhook Secret
+          vercel env add RAZORPAY_WEBHOOK_SECRET production --value="${{ secrets.RAZORPAY_WEBHOOK_SECRET }}" --token=${{ secrets.VERCEL_TOKEN }} --yes || (vercel env rm RAZORPAY_WEBHOOK_SECRET production --yes --token=${{ secrets.VERCEL_TOKEN }} && vercel env add RAZORPAY_WEBHOOK_SECRET production --value="${{ secrets.RAZORPAY_WEBHOOK_SECRET }}" --token=${{ secrets.VERCEL_TOKEN }} --yes)
       - name: Pull Vercel Environment Information
         run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
       - name: Build Project Artifacts

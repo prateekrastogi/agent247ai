@@ -95,6 +95,16 @@
   transform: scale(1.05);
 }
 
+.btn:disabled {
+  cursor: wait;
+  opacity: 0.88;
+  transform: none;
+}
+
+.btn:disabled:hover {
+  transform: none;
+}
+
 .btnSecondary {
   background: linear-gradient(to right, #e94057, #f27121);
   color: var(--grey-10);
@@ -140,12 +150,41 @@
   }
 }
 
+.pricingStatusMessage {
+  min-height: 2.75rem;
+  margin: 0.75rem auto 0;
+  width: min(100%, 320px);
+  text-align: center;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  color: var(--grey-5);
+}
+
+.statusSuccess {
+  color: #0d7a43;
+}
+
+.statusError {
+  color: #b42318;
+}
+
+@media (prefers-color-scheme: dark) {
+  .statusSuccess {
+    color: #58d68d;
+  }
+
+  .statusError {
+    color: #ff8f8f;
+  }
+}
+
 
 /* Tablet */
 @media (min-width: 768px) {
   .headline { font-size: 1.6rem; }
   .subtext { font-size: 1rem; }
   .pricingCard li { font-size: 0.9rem; }
+  .pricingStatusMessage { font-size: 0.9rem; }
   .pricingGrid {
     grid-template-columns: repeat(3, 1fr);
   }

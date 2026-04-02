@@ -8,6 +8,7 @@ type RazorpayPlanConfig = {
   amountLabel: string;
   subscriptionEnvKey: string;
   themeColor: string;
+  backdropColor: string;
 };
 
 const planConfigs: Record<PricingPlanKey, RazorpayPlanConfig> = {
@@ -16,21 +17,24 @@ const planConfigs: Record<PricingPlanKey, RazorpayPlanConfig> = {
     description: "Agent247AI Go subscription",
     amountLabel: "$300/mo",
     subscriptionEnvKey: "RAZORPAY_SUBSCRIPTION_ID_GO",
-    themeColor: "#f27121",
+    themeColor: "#f05a3f",
+    backdropColor: "rgba(66, 21, 8, 0.72)",
   },
   grow: {
     title: "Grow",
     description: "Agent247AI Grow subscription",
     amountLabel: "$500/mo",
     subscriptionEnvKey: "RAZORPAY_SUBSCRIPTION_ID_GROW",
-    themeColor: "#007fff",
+    themeColor: "#1496d1",
+    backdropColor: "rgba(5, 32, 59, 0.78)",
   },
   pro: {
     title: "Pro",
     description: "Agent247AI Pro subscription",
     amountLabel: "$1000/mo",
     subscriptionEnvKey: "RAZORPAY_SUBSCRIPTION_ID_PRO",
-    themeColor: "#f7971e",
+    themeColor: "#f3a61f",
+    backdropColor: "rgba(68, 39, 2, 0.76)",
   },
 };
 
@@ -58,6 +62,7 @@ export function getCheckoutConfig(plan: PricingPlanKey) {
     description: config.description,
     amountLabel: config.amountLabel,
     themeColor: config.themeColor,
+    backdropColor: config.backdropColor,
   };
 }
 

@@ -25,6 +25,7 @@ type CheckoutConfig = {
   description: string;
   amountLabel: string;
   themeColor: string;
+  backdropColor: string;
 };
 
 function getErrorMessage(error: unknown) {
@@ -73,12 +74,13 @@ export default function PricingCheckoutButton({
         subscription_id: configPayload.subscriptionId,
         name: "Agent247AI",
         description: `${configPayload.description} • ${configPayload.amountLabel}`,
-        image: "/logo_black.png",
+        image: "https://agent247ai.com/logo_black.png",
         notes: {
           selected_plan: configPayload.planTitle,
         },
         theme: {
           color: configPayload.themeColor,
+          backdrop_color: configPayload.backdropColor,
         },
         modal: {
           ondismiss: () => {

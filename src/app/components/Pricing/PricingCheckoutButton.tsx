@@ -93,12 +93,20 @@ async function scrollToPricingSection() {
 
   const rootStyles = window.getComputedStyle(document.documentElement);
   const headerHeight = Number.parseInt(rootStyles.getPropertyValue("--header-height"), 10) || 0;
-  const targetTop = pricingSection.getBoundingClientRect().top + window.scrollY - headerHeight - 12;
+  const targetTop = pricingSection.getBoundingClientRect().top + window.scrollY;
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const scrollingElement = document.scrollingElement || document.documentElement;
 
   if (window.location.hash !== "#pricing") {
     window.history.replaceState(null, "", "#pricing");
+  }
+
+  const currentSectionTop = pricingSection.getBoundingClientRect().top;
+  const alreadyAligned =
+    currentSectionTop >= headerHeight - 16 && currentSectionTop <= headerHeight + 24;
+
+  if (alreadyAligned) {
+    return;
   }
 
   const nextTop = Math.max(0, targetTop);

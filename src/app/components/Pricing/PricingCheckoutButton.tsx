@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 import type { PricingPlanKey } from "@/lib/razorpay";
 import styles from "./pricing.module.css";
@@ -35,6 +35,45 @@ function getErrorMessage(error: unknown) {
   return "Something went wrong while starting checkout. Please try again.";
 }
 
+function getPaymentFailureMessage(response: RazorpayFailureResponse) {
+  const description = response.error?.description?.trim();
+  const reason = response.error?.reason?.trim();
+  const message = description || reason || "";
+  const normalized = message.toLowerCase();
+
+  if (
+    normalized.includes("already subscribed") ||
+    normalized.includes("already subscribed to this plan") ||
+    normalized.includes("customer already subscribed")
+  ) {
+    return "This customer is already subscribed to this plan.";
+  }
+
+  return message || "Payment failed before authorization was completed.";
+}
+
+function getSuppressedAlertMessage(message?: string) {
+  const text = String(message ?? "").trim();
+  const normalized = text.toLowerCase();
+
+  if (
+    normalized.includes("already subscribed") ||
+    normalized.includes("already subscribed to this plan") ||
+    normalized.includes("customer already subscribed")
+  ) {
+    return "This customer is already subscribed to this plan.";
+  }
+
+  if (
+    normalized.includes("payment failed") ||
+    normalized.includes("oops! something went wrong")
+  ) {
+    return "This customer may already be subscribed to this plan.";
+  }
+
+  return text || "This customer may already be subscribed to this plan.";
+}
+
 export default function PricingCheckoutButton({
   buttonLabel,
   buttonClassName,
@@ -42,6 +81,7 @@ export default function PricingCheckoutButton({
 }: PricingCheckoutButtonProps) {
   const [isLoading, setIsLoading] = useState(false);
   const [status, setStatus] = useState<StatusState>(null);
+  const paymentFailureFallbackTimerRef = useRef<number | null>(null);
 
   async function handleCheckout() {
     setIsLoading(true);
@@ -68,6 +108,35 @@ export default function PricingCheckoutButton({
         );
       }
 
+      const originalAlert = window.alert;
+      const restoreAlert = () => {
+        if (paymentFailureFallbackTimerRef.current !== null) {
+          window.clearTimeout(paymentFailureFallbackTimerRef.current);
+          paymentFailureFallbackTimerRef.current = null;
+        }
+
+        if (window.alert !== originalAlert) {
+          window.alert = originalAlert;
+        }
+      };
+
+      window.alert = (message?: string) => {
+        if (paymentFailureFallbackTimerRef.current !== null) {
+          window.clearTimeout(paymentFailureFallbackTimerRef.current);
+        }
+
+        console.error("Suppressed checkout alert:", message ?? "");
+
+        paymentFailureFallbackTimerRef.current = window.setTimeout(() => {
+          setStatus({
+            tone: "error",
+            message: getSuppressedAlertMessage(message),
+          });
+          setIsLoading(false);
+          paymentFailureFallbackTimerRef.current = null;
+        }, 100);
+      };
+
       const razorpay = new window.Razorpay({
         key: configPayload.key,
         subscription_id: configPayload.subscriptionId,
@@ -82,6 +151,7 @@ export default function PricingCheckoutButton({
         },
         modal: {
           ondismiss: () => {
+            restoreAlert();
             setIsLoading(false);
           },
         },
@@ -114,17 +184,19 @@ export default function PricingCheckoutButton({
               message: getErrorMessage(error),
             });
           } finally {
+            restoreAlert();
             setIsLoading(false);
           }
         },
       });
 
       razorpay.on("payment.failed", (response) => {
-        const description = response.error?.description || response.error?.reason;
+        console.error("Razorpay payment.failed payload:", response);
+        restoreAlert();
 
         setStatus({
           tone: "error",
-          message: description || "Payment failed before authorization was completed.",
+          message: getPaymentFailureMessage(response),
         });
         setIsLoading(false);
       });

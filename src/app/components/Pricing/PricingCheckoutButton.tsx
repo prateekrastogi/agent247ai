@@ -27,6 +27,16 @@ type CheckoutConfig = {
   themeColor: string;
 };
 
+type CheckoutFailureResponse = {
+  error?: {
+    code?: string;
+    description?: string;
+    reason?: string;
+    source?: string;
+    step?: string;
+  };
+};
+
 function getErrorMessage(error: unknown) {
   if (error instanceof Error && error.message) {
     return error.message;
@@ -35,7 +45,7 @@ function getErrorMessage(error: unknown) {
   return "Something went wrong while starting checkout. Please try again.";
 }
 
-function getPaymentFailureMessage(response: RazorpayFailureResponse) {
+function getPaymentFailureMessage(response: CheckoutFailureResponse) {
   const description = response.error?.description?.trim();
   const reason = response.error?.reason?.trim();
   const message = description || reason || "";
@@ -74,6 +84,46 @@ function getSuppressedAlertMessage(message?: string) {
   return text || "This customer may already be subscribed to this plan.";
 }
 
+async function scrollToPricingSection() {
+  const pricingSection = document.getElementById("pricing");
+
+  if (!pricingSection) {
+    return;
+  }
+
+  const rootStyles = window.getComputedStyle(document.documentElement);
+  const headerHeight = Number.parseInt(rootStyles.getPropertyValue("--header-height"), 10) || 0;
+  const targetTop = pricingSection.getBoundingClientRect().top + window.scrollY - headerHeight - 12;
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const scrollingElement = document.scrollingElement || document.documentElement;
+
+  if (window.location.hash !== "#pricing") {
+    window.history.replaceState(null, "", "#pricing");
+  }
+
+  const nextTop = Math.max(0, targetTop);
+
+  if (reducedMotion) {
+    scrollingElement.scrollTop = nextTop;
+  } else {
+    window.scrollTo({
+      top: nextTop,
+      behavior: "smooth",
+    });
+  }
+
+  await new Promise<void>((resolve) => {
+    window.requestAnimationFrame(() => {
+      scrollingElement.scrollTop = nextTop;
+      resolve();
+    });
+  });
+
+  await new Promise((resolve) => {
+    window.setTimeout(resolve, reducedMotion ? 0 : 350);
+  });
+}
+
 export default function PricingCheckoutButton({
   buttonLabel,
   buttonClassName,
@@ -88,6 +138,8 @@ export default function PricingCheckoutButton({
     setStatus(null);
 
     try {
+      await scrollToPricingSection();
+
       if (!window.Razorpay) {
         throw new Error("Razorpay checkout is still loading. Please retry in a moment.");
       }

@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 
-import { getKnownSubscriptionIds, verifySubscriptionSignature } from "@/lib/razorpay";
+import { verifySubscriptionSignature } from "@/lib/razorpay";
 
 type VerifyPayload = {
   razorpay_payment_id?: string;
@@ -18,13 +18,6 @@ export async function POST(request: Request) {
     if (!paymentId || !subscriptionId || !signature) {
       return NextResponse.json(
         { verified: false, error: "Missing Razorpay verification fields." },
-        { status: 400 },
-      );
-    }
-
-    if (!getKnownSubscriptionIds().has(subscriptionId)) {
-      return NextResponse.json(
-        { verified: false, error: "Unknown Razorpay subscription." },
         { status: 400 },
       );
     }

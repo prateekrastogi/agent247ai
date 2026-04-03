@@ -6,7 +6,7 @@ type RazorpayPlanConfig = {
   title: string;
   description: string;
   amountLabel: string;
-  subscriptionEnvKey: string;
+  planEnvKey: string;
   themeColor: string;
 };
 
@@ -15,21 +15,21 @@ const planConfigs: Record<PricingPlanKey, RazorpayPlanConfig> = {
     title: "Go",
     description: "Agent247AI Go subscription",
     amountLabel: "$300/mo",
-    subscriptionEnvKey: "RAZORPAY_SUBSCRIPTION_ID_GO",
+    planEnvKey: "RAZORPAY_PLAN_ID_GO",
     themeColor: "#f05a3f",
   },
   grow: {
     title: "Grow",
     description: "Agent247AI Grow subscription",
     amountLabel: "$500/mo",
-    subscriptionEnvKey: "RAZORPAY_SUBSCRIPTION_ID_GROW",
+    planEnvKey: "RAZORPAY_PLAN_ID_GROW",
     themeColor: "#1496d1",
   },
   pro: {
     title: "Pro",
     description: "Agent247AI Pro subscription",
     amountLabel: "$1000/mo",
-    subscriptionEnvKey: "RAZORPAY_SUBSCRIPTION_ID_PRO",
+    planEnvKey: "RAZORPAY_PLAN_ID_PRO",
     themeColor: "#f3a61f",
   },
 };
@@ -48,25 +48,17 @@ export function isPricingPlanKey(value: unknown): value is PricingPlanKey {
   return typeof value === "string" && value in planConfigs;
 }
 
-export function getCheckoutConfig(plan: PricingPlanKey) {
+export function getPlanConfig(plan: PricingPlanKey) {
   const config = planConfigs[plan];
 
   return {
     key: getRequiredEnv("RAZORPAY_KEY_ID"),
-    subscriptionId: getRequiredEnv(config.subscriptionEnvKey),
+    planId: getRequiredEnv(config.planEnvKey),
     planTitle: config.title,
     description: config.description,
     amountLabel: config.amountLabel,
     themeColor: config.themeColor,
   };
-}
-
-export function getKnownSubscriptionIds(): Set<string> {
-  return new Set(
-    (Object.values(planConfigs) as RazorpayPlanConfig[])
-      .map((config) => process.env[config.subscriptionEnvKey])
-      .filter((value): value is string => Boolean(value)),
-  );
 }
 
 function safeCompare(left: string, right: string) {

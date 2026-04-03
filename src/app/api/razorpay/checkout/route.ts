@@ -9,6 +9,12 @@ type RazorpayCreateSubscriptionResponse = {
   id: string;
 };
 
+type RazorpayErrorResponse = {
+  error?: {
+    description?: string;
+  };
+};
+
 export async function POST(request: Request) {
   try {
     const body = (await request.json()) as { plan?: string };
@@ -42,15 +48,15 @@ export async function POST(request: Request) {
     });
 
     const razorpayPayload =
-      (await razorpayResponse.json()) as
-        | RazorpayCreateSubscriptionResponse
-        | { error?: { description?: string } };
+      (await razorpayResponse.json()) as RazorpayCreateSubscriptionResponse | RazorpayErrorResponse;
 
     if (!razorpayResponse.ok || !("id" in razorpayPayload)) {
+      const errorPayload = razorpayPayload as RazorpayErrorResponse;
+
       return NextResponse.json(
         {
           error:
-            razorpayPayload.error?.description ||
+            errorPayload.error?.description ||
             "Unable to create a Razorpay subscription right now.",
         },
         { status: 500 },
